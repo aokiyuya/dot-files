@@ -1,0 +1,9 @@
+[[plugin]]
+repo = 'plasticboy/vim-markdown'
+
+[[plugin]]
+repo = 'kannokanno/previm'
+
+[[plugin]]
+repo = 'tyru/open-browser.vim'
+
