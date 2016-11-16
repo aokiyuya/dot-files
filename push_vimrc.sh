@@ -1,6 +1,9 @@
 #!/bin/sh
 cp ~/.vimrc ~/dot-files/
+cp -rf ~/dot-files/.vim/template ~/template/
 cp -rf ~/.vim/ ~/dot-files/.vim/
+cp -rf ~/template ~/dot-files/.vim/template
+rm -rf ~/template
 cp ~/.latexmkrc ~/dot-files/
 cd ~/dot-files/
 git add .
