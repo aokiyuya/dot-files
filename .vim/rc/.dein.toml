@@ -80,15 +80,8 @@ repo =  'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'supermomonga/vimshell-kawaii.vim'
 
-[[plugins]] # auto filetypeと競合していて見えません...
+[[plugins]]
 repo = 'drillbits/nyan-modoki.vim'
-hook_add = '''
-	set laststatus=2
-	set statusline=%F%m%r%h%w[%{&ff}]%=%{g:NyanModoki()}(%l,%c)[%P]
-	let g:nyan_modoki_select_cat_face_number = 2
-	let g:nyan_modoki_animation_enabled = 1
-
-'''
 
 [[plugins]]
 repo =  'Shougo/vesting'

@@ -165,9 +165,18 @@ endif
 let g:quickrun_config = {}
 let g:quickrun_config.tex = {
             \ 'command' : 'latexmk',
-			\ 'cmdopt' : '-pvc',
-			\ 'outputter/error/error' : 'quickfix',
-			\ "runner" : "vimproc",
-			\ "runner/vimproc/updatetime" : 40,
-            \ 'exec'      : '%c %o %s', 
-           \ }
+            \ 'cmdopt' : '-pvc',
+            \ 'outputter/error/error' : 'quickfix',
+            \ "runner" : "vimproc",
+            \ "runner/vimproc/updatetime" : 40,
+            \ 'exec'      : '%c %o %s',
+            \ }
+
+
+
+set laststatus=2
+set statusline=%F%m%r%h%w[%{&ff}]%=%{g:NyanModoki()}(%l,%c)[%P]
+let g:nyan_modoki_select_cat_face_number = 2
+let g:nyan_modoki_animation_enabled = 1
+
+
