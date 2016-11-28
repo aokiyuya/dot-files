@@ -15,6 +15,7 @@ set list
 set listchars=tab:>-,extends:<,trail:-
 set backspace=indent,eol,start
 set tabstop=4
+set ambiwidth=double
 
 set runtimepath+=~/.vim/:~/.vim/ftplugin/
 set encoding=utf-8
@@ -110,7 +111,6 @@ if has('vim_starting') &&  file_name == ''
   autocmd VimEnter * NERDTree ./
 endif
 
-syntax on
 highlight Normal ctermbg=none
 
 
@@ -179,4 +179,5 @@ set statusline=%F%m%r%h%w[%{&ff}]%=%{g:NyanModoki()}(%l,%c)[%P]
 let g:nyan_modoki_select_cat_face_number = 2
 let g:nyan_modoki_animation_enabled = 1
 
-
+colorscheme badwolf
+syntax on
