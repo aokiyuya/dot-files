@@ -12,11 +12,11 @@ $pvc_view_file_via_temporary = 0;
 # Use SumatraPDF and atom inverse search
 # please replace maruta by your username
 #macのプレビュ設定
-if ($^O eq"MSWin32"){
-	$pdf_previewer = '"C:\Program Files\SumatraPDF\SumatraPDF.exe" -reuse-instance';
-}elsif($^O eq"MacOS"){
+#if ($^O eq"MSWin32"){
+#	$pdf_previewer = '"C:\Program Files\SumatraPDF\SumatraPDF.exe" -reuse-instance';
+#}elsif($^O eq"MacOS"){
 $pdf_previewer = "open -ga /Applications/Skim.app";
-}
+#}
 #$pdf_previewer = '"C:\Program Files\SumatraPDF\SumatraPDF.exe" -reuse-instance';
 # if you do not need to preview in -pvc option (preview document and countinuously update mode)
 # $pdf_previewer = 'exit';
