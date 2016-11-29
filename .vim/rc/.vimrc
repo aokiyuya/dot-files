@@ -10,24 +10,28 @@ set smartcase
 set hlsearch
 set background=dark
 set incsearch
+set nocompatible
 set whichwrap=b,s,h,l,<,>,[,]
 set list
 set listchars=tab:>-,extends:<,trail:-
 set backspace=indent,eol,start
 set tabstop=4
 set ambiwidth=double
-
 set runtimepath+=~/.vim/:~/.vim/ftplugin/
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+" もしutf-8ですべてのファイルを管理したければ
+" set fileencoding=utf-8
 set fileformats=unix,dos,mac
+" 必要性に疑問を感じてきた↓
 let mapleader = ","
+" テンプレートの読み込み
 autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
 autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
 autocmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
 autocmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
 
-nmap	<Space>u [unite]
+autocmd FileType python :set dictionary=python.dict
 
 " OSの判定
 if has('win32')
@@ -41,14 +45,15 @@ endif
 " put esc-key for delete highlight
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
-if !&compatible
-  set nocompatible
-endif
+highlight Normal ctermbg=none
 
 " reset augroup
 augroup MyAutoCmd
   autocmd!
 augroup END
+
+
+
 
 " dein settings -----------------------------------------------------
 " dein自体の自動インストール
@@ -111,7 +116,6 @@ if has('vim_starting') &&  file_name == ''
   autocmd VimEnter * NERDTree ./
 endif
 
-highlight Normal ctermbg=none
 
 
 
@@ -173,7 +177,7 @@ let g:quickrun_config.tex = {
             \ }
 
 
-
+" status bar
 set laststatus=2
 set statusline=%F%m%r%h%w[%{&ff}]%=%{g:NyanModoki()}(%l,%c)[%P]
 let g:nyan_modoki_select_cat_face_number = 2

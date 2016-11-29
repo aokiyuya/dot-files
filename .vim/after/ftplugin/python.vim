@@ -14,7 +14,6 @@ set columns=80
 set expandtab shiftwidth=4
 set softtabstop=4
 set path+=":/usr/local/Cellar/opencv/2.4.12_2/lib/python2.7/site-packages/"
-
 set listchars=tab:>-,extends:<,trail:-
 
 " <F5>で編集中のファイルを実行
@@ -112,7 +111,7 @@ xnoremap [jedi] <Nop>
 nmap <Leader>j [jedi]
 xmap <Leader>j [jedi]
 
-let g:jedi#completions_command = "<C-s>"    " 補完キーの設定この場合はCtrl+Space
+let g:jedi#completions_command = "<C-Space>"    " 補完キーの設定この場合はCtrl+Space
 let g:jedi#goto_assignments_command = "<C-g>"   " 変数の宣言場所へジャンプ（Ctrl + g)
 let g:jedi#goto_definitions_command = "<C-d>"   " クラス、関数定義にジャンプ（Gtrl + d）
 let g:jedi#documentation_command = "<C-k>"      " Pydocを表示（Ctrl + k）
@@ -127,8 +126,6 @@ if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
 
-let g:neocomplete#force_omni_input_patterns.cpp =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 " for w/ neocomplete
 autocmd FileType python setlocal omnifunc=jedi#completions
@@ -136,18 +133,10 @@ let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:neocomplete#force_omni_input_patterns.python =
   \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+let g:neocomplete#sources#dictionary#dictionaries = {
+ \   'python': $HOME . '/.vim/after/ftplugin/python.dict',
+ \ }
 
-
-" ---------- jedi.vim設定 ----------
- " neocompleteと連携
-autocmd FileType python setlocal omnifunc=jedi#completions
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^.
-\t]\.\w*'
 " docstring非表示
 autocmd Filetype python setlocal completeopt-=preview
 
