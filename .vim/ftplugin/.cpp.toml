@@ -1,0 +1,20 @@
+[[plugin]]
+repo = 'Shougo/neoinclude.vim'
+
+[[plugin]]
+repo = 'justmao945/vim-clang'
+
+[[plugin]]
+repo = 'Shougo/neocomplete.vim'
+
+[[plugin]]
+repo = 'SingleCompile'
+
+[[plugin]]
+repo = 'osyo-manga/vim-reunions'
+
+
+
+
+
+
