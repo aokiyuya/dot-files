@@ -1,0 +1,15 @@
+[[plugin]]
+repo = 'kevinw/pyflakes-vim'
+
+[[plugin]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugin]]
+repo = 'hdima/python-syntax'
+
+[[plugin]]
+repo = 'jpythonfold.vim'
+
+[[plugin]]
+repo = 'hynek/vim-python-pep8-indent'
+
