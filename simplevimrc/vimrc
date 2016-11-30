@@ -1,0 +1,51 @@
+" my vim simple settings
+" Author: yuya aoki
+"	and Fujie lab members
+
+set nocompatible
+set noswapfile
+set cmdheight=2
+set title
+set encoding=utf-8
+scriptencoding utf-8
+set fileformats=unix,dos,mac
+set tabstop=4
+set softtabstop=4
+set autoindent
+set smartindent
+set shiftwidth=4
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+set whichwrap=b,s,h,l,<,>,[,],~
+set number
+set backspace=indent,eol,start
+set showmatch
+source $VIMRUNTIME/macros/matchit.vim
+set wildmenu
+set history=500
+set list
+set listchars=tab:>-,extends:<,trail:-
+
+
+set background=dark
+syntax enable
+highlight Normal ctermbg=black ctermfg=grey
+highlight StatusLine term=none cterm=none ctermfg=black ctermbg=grey
+highlight CursorLine term=none cterm=none ctermfg=none ctermbg=darkgray
+
+set cursorline
+
+set completeopt=menuone
+for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
+	exec "imap <expr> " . k . " pumvisible() ? '" . k . "' : '" . k . "\<C-X>\<C-P>\<C-N>'"
+endfor
+autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
+autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
+autocmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
+autocmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
+
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%=%l/%L,%c%V%8P
+set laststatus=2
