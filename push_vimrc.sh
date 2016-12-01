@@ -1,6 +1,7 @@
 #!/bin/sh
 cp ~/.vimrc ~/dot-files/
 cp -rf ~/dot-files/.vim/template ~/
+rm -rf ~/dot-files/.vim/
 cp -rf ~/.vim/ ~/dot-files/.vim/
 cp -rf ~/template ~/dot-files/.vim/
 rm -rf ~/template

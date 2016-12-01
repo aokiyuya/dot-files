@@ -65,13 +65,16 @@ repo =  'evidens/vim-twig'
 repo = 'scrooloose/syntastic'
 
 [[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
 repo =  'Shougo/neosnippet'
+depends = ['neosnippet-snippets']
+on_i = 1
+on_ft = ['snippet']
 
 [[plugins]]
 repo = 'Shougo/vimshell'
-
-[[plugins]]
-repo =  'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'supermomonga/vimshell-kawaii.vim'
@@ -90,3 +93,4 @@ repo = 'Shougo/Unite.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+
