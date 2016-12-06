@@ -60,7 +60,7 @@ let g:PyFlakeDefaultComplexity=10
 "visualモードでQを押すと自動で修正
 let g:PyFlakeRangeCommand = 'Q'
 
-" autopep 
+" autopep
 " original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 function! Preserve(command)
     " Save the last search.
@@ -120,20 +120,23 @@ let g:jedi#usages_command = "[jedi]n"
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
 
-autocmd FileType python setlocal completeopt-=preview
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-
 " for w/ neocomplete
 setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#show_call_signatures = 0
+
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+
 let g:neocomplete#force_omni_input_patterns.python =
   \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 " docstring非表示
-autocmd Filetype python setlocal completeopt-=preview
+setlocal completeopt-=preview
+
 
