@@ -14,7 +14,7 @@ $pvc_view_file_via_temporary = 0;
 #macのプレビュ設定
 if ($^O eq"MSWin32"){
 	$pdf_previewer = '"C:\Program Files\SumatraPDF\SumatraPDF.exe" -reuse-instance';
-}elsif($^O eq"MacOS"){
+}elsif($^O eq"darwin"){
 $pdf_previewer = "open -ga /Applications/Skim.app";
 }
 #$pdf_previewer = '"C:\Program Files\SumatraPDF\SumatraPDF.exe" -reuse-instance';
