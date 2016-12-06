@@ -83,7 +83,7 @@ if dein#load_state(s:dein_dir)
       call dein#add('ujihisa/neco-look', {
             \ 'depends': ['neocomplete.vim']})
 	endif
-      call dein#add('davidhalter/jedi-vim', {
+      call dein#add('aokiyuya/jedi-vim', {
 			\ 'autoload': {'filetypes': ['python','python3','djangohtml']}})
 
   call dein#end()
