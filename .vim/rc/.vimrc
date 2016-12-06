@@ -21,7 +21,7 @@ set runtimepath+=~/.vim/:~/.vim/ftplugin/
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 " もしutf-8ですべてのファイルを管理したければ
-" set fileencoding=utf-8
+set fileencoding=utf-8
 set fileformats=unix,dos,mac
 " 必要性に疑問を感じてきた↓
 let mapleader = ","
