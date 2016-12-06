@@ -16,6 +16,8 @@ if ($^O eq"MSWin32"){
 	$pdf_previewer = '"C:\Program Files\SumatraPDF\SumatraPDF.exe" -reuse-instance';
 }elsif($^O eq"darwin"){
 $pdf_previewer = "open -ga /Applications/Skim.app";
+}elsif($^O eq "linux"){
+	$pdf_previewer = "evince";
 }
 #$pdf_previewer = '"C:\Program Files\SumatraPDF\SumatraPDF.exe" -reuse-instance';
 # if you do not need to preview in -pvc option (preview document and countinuously update mode)
