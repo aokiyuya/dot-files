@@ -28,7 +28,7 @@ set wildmenu
 set history=500
 set list
 set listchars=tab:>-,extends:<,trail:-
-
+set expandtab shiftwidth=4
 
 set background=dark
 syntax enable
