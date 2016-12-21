@@ -23,8 +23,19 @@ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 " もしutf-8ですべてのファイルを管理したければ
 set fileencoding=utf-8
 set fileformats=unix,dos,mac
-" 必要性に疑問を感じてきた↓
-let mapleader = ","
+
+" Space をLeader にしてみる
+let mapleader = "\<Space>"
+" Space w で保存 Space q で終了
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+" Space SpaceでVisual Line
+nnoremap <Leader><Leader> V
+" 不要なウィンドウのポップアップを抑制
+map q: :q
+
+
+
 " テンプレートの読み込み
 autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
 autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
