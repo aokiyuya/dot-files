@@ -1,5 +1,9 @@
 # dot-files
 
+##LICENSE
+MIT
+
+##How to install
 > git clone thisurl at homedir
 >
 > cd dot-files
