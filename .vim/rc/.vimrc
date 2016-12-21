@@ -35,7 +35,6 @@ nnoremap <Leader><Leader> V
 map q: :q
 
 
-
 " テンプレートの読み込み
 autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
 autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
@@ -62,8 +61,6 @@ highlight Normal ctermbg=none
 augroup MyAutoCmd
   autocmd!
 augroup END
-
-
 
 
 " dein settings -----------------------------------------------------
@@ -93,10 +90,9 @@ if dein#load_state(s:dein_dir)
 
       call dein#add('ujihisa/neco-look', {
             \ 'depends': ['neocomplete.vim']})
-	endif
+    endif
       call dein#add('aokiyuya/jedi-vim', {
-			\ 'autoload': {'filetypes': ['python','python3','djangohtml']}})
-
+             \ 'autoload': {'filetypes': ['python','python3','djangohtml']}})
   call dein#end()
   call dein#save_state()
 endif
@@ -202,9 +198,6 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-
-
-
 " status bar
 set laststatus=2
 set statusline=%F%m%r%h%w[%{&ff}]%=%{g:NyanModoki()}(%l,%c)[%P]
@@ -213,3 +206,4 @@ let g:nyan_modoki_animation_enabled = 1
 
 colorscheme badwolf
 syntax on
+

@@ -49,3 +49,15 @@ autocmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
 
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%=%l/%L,%c%V%8P
 set laststatus=2
+
+
+" Space をLeader にしてみる
+let mapleader = "\<Space>"
+" Space w で保存 Space q で終了
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+" Space SpaceでVisual Line
+nnoremap <Leader><Leader> V
+" 不要なウィンドウのポップアップを抑制
+map q: :q
+
