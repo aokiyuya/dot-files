@@ -1,28 +1,47 @@
 " my vim settings
 " Author: Fujie lab members
 
+" 行数表示
 set number
+" swapfileを作らない
 set noswapfile
+" コマンド打つ場所の高さ
 set cmdheight=2
+" ファイル名表示
 set title
+" コマンドでも補完が聞くように
 set wildmenu
+" 小文字で検索したとき大文字小文字を無視する
+set ignorecase
 set smartcase
+" 検索結果にハイライトをかける
 set hlsearch
+" インクリメント検索
 set incsearch
+" vi互換を着る
 set nocompatible
+" カーソルで行をまたげるようにする
 set whichwrap=b,s,h,l,<,>,[,]
+" tabなどを可視化する
 set list
 set listchars=tab:>-,extends:<,trail:-
+" バックスペースでindent, end of low, startを削除できるように
 set backspace=indent,eol,start
+" タブ幅4
 set tabstop=4
+" マルチバイト用
 set ambiwidth=double
-set runtimepath+=~/.vim/:~/.vim/ftplugin/
+" pathに各拡張子用の設定を書いた物を追加
+set runtimepath+=~/.vim/,~/.vim/ftplugin/
+" エンコーディングの設定
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 " もしutf-8ですべてのファイルを管理したければ
 set fileencoding=utf-8
+" この優先順位でファイルを保存する形式を決める
 set fileformats=unix,dos,mac
-
+" 256色描画
+set t_Co=256
 " Space をLeader にしてみる
 let mapleader = "\<Space>"
 " Space w で保存 Space q で終了
@@ -62,11 +81,15 @@ autocmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
 " dein settings -----------------------------------------------------
 " set cache path
 let $CACHE = expand('~/.cache')
-" Disable packpath
-set packpath=
+" if vim8.0 or latest, Disable packpath
+if v:version >= 800
+  set packpath=
+endif
 
 " Load dein
 set runtimepath+=$CACHE/dein/repos/github.com/Shougo/dein.vim
+" echo &runtimepath
+
 let s:dein_dir = expand('$CACHE/dein')
 if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
   if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
@@ -190,19 +213,14 @@ let g:nyan_modoki_select_cat_face_number = 2
 let g:nyan_modoki_animation_enabled = 1
 
 
-
 " colorscheme関係
 colorscheme badwolf
 
-" syntax on
-" " 一応256色対応にしてみた
-" set t_Co=256
-
+" 透過用処理らしい
+highlight Normal ctermbg=none
 
 " https://github.com/Shougo/dein.vim/issues/65
 " needed らしいのでいれてみる
 filetype plugin indent on
-syntax enable
-" 透過用処理らしい
-highlight Normal ctermbg=none
+syntax on
 
