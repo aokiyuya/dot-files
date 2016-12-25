@@ -5,7 +5,6 @@ if = "has('lua')"
 on_event= 'InsertEnter'
 hook_source= '''
   let g:neocomplete#enable_at_startup=1
-  source ~/.vim/rc/plugins/neocomplete.rc.vim
 '''
 
 [[plugins]]
@@ -27,7 +26,6 @@ hook_source='''
 repo = 'Shougo/vimshell.vim'
 on_map = { n = '<Plug>'}
 hook_add = 'nmap [Space]s <Plug>(cimshell_switch)'
-# 必要?
 # hook_source = 'source ~/.vim/rc/plugins/vimshell.rc.vim'
 
 [[plugins]]
@@ -40,12 +38,8 @@ depends = 'open-browser.vim'
 repo = 'aokiyuya/jedi-vim'
 on_ft = 'python'
 
-
 [[plugins]]
 repo = 'ujihisa/neco-look'
 on_source = [ 'neocomplete.vim' ]
-
-
-
 
 

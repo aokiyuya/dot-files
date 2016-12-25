@@ -1,7 +1,6 @@
 " Configuration for python
 " Author: Yuya Aoki
 
-syntax on
 set modeline
 set nobackup
 set showmatch
@@ -18,6 +17,8 @@ set listchars=tab:>-,extends:<,trail:-
 
 " <F5>で編集中のファイルを実行
 " MATLABと同じショートカット
+nmap <F5> :!python %
+
 
 let python_highlight_all = 1
 

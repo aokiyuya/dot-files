@@ -18,7 +18,6 @@ hook_post_update = '''
   let g:dein#plugin.build = cmd
 '''
 
-
 # ブランチやタグを指定したいとき
 [[plugins]]
 repo = 'delphinus35/typescript-vim'
@@ -45,7 +44,7 @@ repo = 'sjl/badwolf'
 repo = 'osyo-manga/vim-precious'
 depends = ['Shougo/context_filetype.vim']
 
-[[plugins]] # 上の判定ライブラリ
+[[plugins]] # filetype 判定ライブラリ
 repo = 'Shougo/context_filetype.vim'
 
 # lazyに移動するか?
@@ -66,7 +65,7 @@ repo =  'evidens/vim-twig'
 repo = 'scrooloose/syntastic'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'aokiyuya/neosnippet-snippets'
 
 [[plugins]]
 repo = 'Shougo/vimshell'
