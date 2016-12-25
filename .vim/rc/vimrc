@@ -1,7 +1,9 @@
-
 " my vim settings
 " Author: Fujie lab members
 
+
+" syntax
+syntax on
 " 行数表示
 set number
 " swapfileを作らない
@@ -121,16 +123,14 @@ let g:dein#install_progress_type = 'title'
 let g:dein#install_message_type = 'none'
 let g:dein#enable_notificiation = 1
 
-if !dein#load_state(s:path)
-  echo dein#load_state is failed
-  " finish
+" vimrc や toml に更新があれば実行
+if dein#load_state(s:path)
+  call dein#begin(s:path, expand('<sfile>'))
+  call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
+  call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy': 1})
+  call dein#end()
+  call dein#save_state()
 endif
-
-call dein#begin(s:path, expand('<sfile>'))
-call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
-call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy': 1})
-call dein#end()
-call dein#save_state()
 
 if dein#check_install()
   call dein#install()
