@@ -1,0 +1,1 @@
+/Users/aoki/.config/fisherman/shark/functions/shark.fish
