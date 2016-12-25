@@ -48,6 +48,7 @@ depends = ['Shougo/context_filetype.vim']
 [[plugins]] # 上の判定ライブラリ
 repo = 'Shougo/context_filetype.vim'
 
+# lazyに移動するか?
 [[plugin]]
 repo = 'rhysd/github-complete.vim'
 
@@ -68,12 +69,6 @@ repo = 'scrooloose/syntastic'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo =  'Shougo/neosnippet'
-depends = ['neosnippet-snippets']
-on_i = 1
-on_ft = ['snippet']
-
-[[plugins]]
 repo = 'Shougo/vimshell'
 
 [[plugins]]
@@ -83,14 +78,55 @@ repo = 'supermomonga/vimshell-kawaii.vim'
 repo = 'drillbits/nyan-modoki.vim'
 
 [[plugins]]
-repo =  'Shougo/vesting'
-
-[[plugins]]
-repo = 'hynek/vim-python-pep8-indent'
-
-[[plugins]]
 repo = 'Shougo/Unite.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+
+# markdown用
+[[plugin]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+
+[[plugin]]
+repo = 'tyru/open-browser.vim'
+on_ft = 'markdown'
+
+# python用
+[[plugin]]
+repo = 'kevinw/pyflakes-vim'
+on_ft = 'python'
+
+[[plugin]]
+repo = 'nathanaelkane/vim-indent-guides'
+on_ft = 'python'
+
+[[plugin]]
+repo = 'hdima/python-syntax'
+on_ft = 'python'
+
+[[plugin]]
+repo = 'jpythonfold.vim'
+on_ft = 'python'
+
+[[plugin]]
+repo = 'hynek/vim-python-pep8-indent'
+on_ft = 'python'
+
+# plugins for c and cpp
+[[plugin]]
+repo = 'osyo-manga/vim-marching'
+on_ft = 'cpp'
+
+[[plugin]]
+repo = 'vim-jp/cpp-vim'
+on_ft = 'cpp'
+
+[[plugin]]
+repo = 'justmao945/vim-clang'
+on_ft = 'cpp'
+
+
+
+
 

@@ -8,7 +8,6 @@ set title
 set wildmenu
 set smartcase
 set hlsearch
-set background=dark
 set incsearch
 set nocompatible
 set whichwrap=b,s,h,l,<,>,[,]
@@ -34,15 +33,6 @@ nnoremap <Leader><Leader> V
 " 不要なウィンドウのポップアップを抑制
 map q: :q
 
-
-" テンプレートの読み込み
-autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
-autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
-autocmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
-autocmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
-
-autocmd FileType python :set dictionary=python.dict
-
 " OSの判定
 if has('win32')
 	let ostype = "Win"
@@ -55,76 +45,71 @@ endif
 " put esc-key for delete highlight
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
-highlight Normal ctermbg=none
-
 " reset augroup
 augroup MyAutoCmd
   autocmd!
 augroup END
 
+" road template
+autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
+autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
+autocmd BufNewFile *.c 0r $HOME/.vim/template/template.cpp
+autocmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
+autocmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
 
+
+" shougo-s-githubを参考に改善してみた
 " dein settings -----------------------------------------------------
-" dein自体の自動インストール
-let s:dein_enabled = 1
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-endif
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
-" プラグイン読み込み＆キャッシュ作成
-let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+" set cache path
+let $CACHE = expand('~/.cache')
+" Disable packpath
+set packpath=
 
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
-    call dein#load_toml(s:toml_file)
-"    call dein#add('Shougo/unite.vim', {
-"        \ 'depends': ['vimproc'],
-"        \ 'on_cmd': ['Unite'],
-"        \ 'lazy': 1})
-    if has('lua')
-      call dein#add('Shougo/neocomplete.vim', {
-            \ 'on_i': 1,
-            \ 'lazy': 1})
-
-      call dein#add('ujihisa/neco-look', {
-            \ 'depends': ['neocomplete.vim']})
+" Load dein
+set runtimepath+=$CACHE/dein/repos/github.com/Shougo/dein.vim
+let s:dein_dir = expand('$CACHE/dein')
+if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
+  if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
+    let s:dein_dir = expand('$CACHE/dein')
+    \. '/repos/github.com/Shougo/dein.vim'
+    if !isdirectory(s:dein_dir)
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
     endif
-      call dein#add('aokiyuya/jedi-vim', {
-             \ 'autoload': {'filetypes': ['python','python3','djangohtml']}})
-  call dein#end()
-  call dein#save_state()
+  endif
+  execute 'set runtimepath+=' . substitute(
+        \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
 endif
 
-" vimprocだけは最初にインストールしてほしい
+let g:dein#install_progress_type = 'title'
+let g:dein#install_message_type = 'none'
+let g:dein#enable_notificiation = 1
+
+let s:path = expand('$CACHE/dein')
+if !dein#load_state(s:path)
+  finish
+endif
+
+call dein#begin(s:path, expand('<sfile>'))
+call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
+call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy': 1})
+call dein#end()
+call dein#save_state()
+
 if dein#check_install()
   call dein#install()
 endif
 
-
-
-" 不足プラグインの自動インストール
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
-if s:dein_enabled && dein#tap("unite.vim")
-  nnoremap [unite] <Nop>
-  nmap <Leader>u [unite]
-  nnoremap <silent> [unite]b :Unite buffer<CR>
-endif
-
-"End dein Scripts-------------------------
+"End dein settings------------------------
 
 " 引数なしでvimを開くとNERDTreeを起動
 let file_name = expand('%')
 if has('vim_starting') &&  file_name == ''
   autocmd VimEnter * NERDTree ./
 endif
-
-
-
 
 " ---------- neocomplete.vim設定 ----------
 " Disable AutoComplPop.
@@ -192,7 +177,7 @@ imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: "\<TAB>"
- 
+
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
@@ -204,6 +189,20 @@ set statusline=%F%m%r%h%w[%{&ff}]%=%{g:NyanModoki()}(%l,%c)[%P]
 let g:nyan_modoki_select_cat_face_number = 2
 let g:nyan_modoki_animation_enabled = 1
 
+
+
+" colorscheme関係
 colorscheme badwolf
-syntax on
+
+" syntax on
+" " 一応256色対応にしてみた
+" set t_Co=256
+
+
+" https://github.com/Shougo/dein.vim/issues/65
+" needed らしいのでいれてみる
+filetype plugin indent on
+syntax enable
+" 透過用処理らしい
+highlight Normal ctermbg=none
 
