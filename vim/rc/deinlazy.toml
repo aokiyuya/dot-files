@@ -4,7 +4,7 @@ depends = 'context_filetype.vim'
 if = "has('lua')"
 on_event= 'InsertEnter'
 hook_source= '''
-  let g:neocomplete#enable_at_startup=1
+source ~/.vim/rc/plugins/neocomplete.rc.vim
 '''
 
 [[plugins]]
@@ -36,7 +36,26 @@ depends = 'open-browser.vim'
 
 [[plugins]]
 repo = 'aokiyuya/jedi-vim'
+on_event = 'InsertEnter'
 on_ft = 'python'
+hook_source = '''
+source ~/.vim/rc/plugins/jedi.rc.vim
+
+" setlocal omnifunc=jedi#completions
+" let g:jedi#completions_enabled = 0
+" let g:jedi#auto_vim_configuration = 1
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#smart_auto_mappings = 0
+" let g:jedi#show_call_signatures = 0
+" setlocal completeopt-=preview
+" 
+" let g:jedi#completions_command = "<C-Space>"
+" let g:jedi#goto_assignments_command = "<C-g>"
+" let g:jedi#foto_definitions_command = "<C-d>"
+" let g:jedi#documentation_commnad = "<C-k>"
+
+
+'''
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
