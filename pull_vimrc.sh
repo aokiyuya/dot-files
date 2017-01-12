@@ -7,6 +7,6 @@ cp ~/dot-files/vimrc ~/.vimrc
 cp -rf ~/.vim/template/ ~/template/
 rm -rf ~/.vim/
 cp -rf ~/dot-files/vim/ ~/.vim/
-cp -rf ~/template/ ~/.vim/template/
+cp -rf ~/template/ ~/.vim/
 cp ~/dot-files/latexmkrc ~/.latexmkrc
 rm -rf ~/template
