@@ -14,10 +14,6 @@ MIT
 >
 > pullvimrc
 
-## Caution!
 
-now, shellscript is written by me
-
-so don't install use script file
 
 
