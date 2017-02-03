@@ -1,11 +1,12 @@
 " it is settings for latex
 "
 " syntax on
- 
+
 filetype plugin on
 filetype indent on
 set shellslash
 set grepprg=grep\ -nH\ $*
+set shiftwidth=2
 let g:tex_flavor='latex'
 let g:Imap_UsePlaceHolders = 1
 let g:Imap_DeleteEmptyPlaceHolders = 1
