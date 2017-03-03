@@ -2,8 +2,21 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]] # statusline の設定
-repo = 'itchyny/lightline.vim'
+# git clone 後、実行すべきコマンドがある場合はこんな感じ
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
 
 # ブランチやタグを指定したいとき
 [[plugins]]
@@ -15,6 +28,18 @@ rev  = 'colorize-template-strings'
 repo = 'elzr/vim-json'
 if   = '''! has('kaoriya')'''
 
+# 依存関係を指定したいとき
+[[plugins]]
+repo    = 'vim-airline/vim-airline'
+depends = ['vim-airline-themes']
+
+# 依存関係を指定したからと言って、自動でインストールはされない（ここは NeoBundle と違う）
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]] # カラースキーマ
+repo = 'sjl/badwolf'
+
 [[plugins]] # カーソル位置によって filetype 切り替え
 repo = 'osyo-manga/vim-precious'
 depends = ['Shougo/context_filetype.vim']
@@ -22,15 +47,8 @@ depends = ['Shougo/context_filetype.vim']
 [[plugins]] # filetype 判定ライブラリ
 repo = 'Shougo/context_filetype.vim'
 
-[[plugins]] # カラースキーマ
-repo = 'sjl/badwolf'
-hook_add = '''
-set background=dark
-au MyAutoCmd VimEnter * nested colorscheme badwolf
-'''
-
 # lazyに移動するか?
-[[plugins]]
+[[plugin]]
 repo = 'rhysd/github-complete.vim'
 
 [[plugins]] # toml syntax
@@ -59,45 +77,57 @@ repo = 'supermomonga/vimshell-kawaii.vim'
 repo = 'drillbits/nyan-modoki.vim'
 
 [[plugins]]
+repo = 'Shougo/Unite.vim'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 on_ft = 'tex'
 hook_source = '''source ~/.vim/rc/plugins/quickrun_tex.rc.vim'''
 
 # markdown用
-[[plugins]]
+[[plugin]]
 repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
 
-[[plugins]]
+[[plugin]]
 repo = 'tyru/open-browser.vim'
 on_ft = 'markdown'
 
 # python用
-[[plugins]]
+[[plugin]]
+repo = 'kevinw/pyflakes-vim'
+on_ft = 'python'
+
+[[plugin]]
 repo = 'nathanaelkane/vim-indent-guides'
 on_ft = 'python'
 
-[[plugins]]
+[[plugin]]
 repo = 'hdima/python-syntax'
 on_ft = 'python'
 
-[[plugins]]
+[[plugin]]
+repo = 'jpythonfold.vim'
+on_ft = 'python'
+
+[[plugin]]
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'
 
 # plugins for c and cpp
-[[plugins]]
+[[plugin]]
 repo = 'osyo-manga/vim-marching'
 on_ft = 'cpp'
 
-[[plugins]]
+[[plugin]]
 repo = 'vim-jp/cpp-vim'
 on_ft = 'cpp'
 
-[[plugins]]
+[[plugin]]
 repo = 'justmao945/vim-clang'
 on_ft = 'cpp'
 
-[[plugins]]
-repo = 'Shougo/neco-syntax'
+
+
+
 

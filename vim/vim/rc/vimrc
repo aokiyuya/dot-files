@@ -21,7 +21,7 @@ set smartcase
 set hlsearch
 " インクリメント検索
 set incsearch
-" vi互換を切る
+" vi互換を着る
 set nocompatible
 " カーソルで行をまたげるようにする
 set whichwrap=b,s,h,l,<,>,[,]
@@ -60,10 +60,8 @@ if has('win32')
 	let ostype = "Win"
 elseif has('mac')
 	let ostype = "Mac"
-	set shell=sh
 else
 	let ostype = system("uname")
-	set shell=sh
 endif
 
 " put esc-key for delete highlight
@@ -109,6 +107,10 @@ endfunction
 " dein.rc.vimを読み込む
 call s:source_rc('dein.rc.vim')
 
+
+
+
+
 " if vim8.0 or latest, Disable packpath
 if v:version >= 800
   set packpath=
@@ -119,6 +121,7 @@ let file_name = expand('%')
 if has('vim_starting') &&  file_name == ''
   autocmd VimEnter * NERDTree ./
 endif
+
 
 " neosnippet
 " SuperTab like snippets behavior.
@@ -137,10 +140,19 @@ endif
 
 " status bar
 set laststatus=2
+set statusline=%F%m%r%h%w[%{&ff}]%=%{g:NyanModoki()}(%l,%c)[%P]
+let g:nyan_modoki_select_cat_face_number = 2
+let g:nyan_modoki_animation_enabled = 1
+
+
+" colorscheme関係
+colorscheme badwolf
 
 " 透過用処理らしい
 highlight Normal ctermbg=none
 
+" https://github.com/Shougo/dein.vim/issues/65
+" needed らしいのでいれてみる
 filetype plugin indent on
 syntax on
 

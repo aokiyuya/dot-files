@@ -15,5 +15,8 @@ MIT
 > pullvimrc
 
 
+## Caution
+
+Use Vim 8.0 with lua
 
 
