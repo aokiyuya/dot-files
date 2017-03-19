@@ -1,7 +1,6 @@
 " my vim settings
 " Author: Fujie lab members
 
-
 " syntax
 syntax on
 " 行数表示
@@ -32,13 +31,14 @@ set listchars=tab:>-,extends:<,trail:-
 set backspace=indent,eol,start
 " タブ幅4
 set tabstop=4
+set shiftwidth=4
 " マルチバイト用
 set ambiwidth=double
 " pathに各拡張子用の設定を書いた物を追加
 set runtimepath+=~/.vim/,~/.vim/ftplugin/
 " エンコーディングの設定
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
 " もしutf-8ですべてのファイルを管理したければ
 set fileencoding=utf-8
 " この優先順位でファイルを保存する形式を決める
@@ -46,7 +46,8 @@ set fileformats=unix,dos,mac
 " 256色描画
 set t_Co=256
 " Space をLeader にしてみる
-let mapleader = "\<Space>"
+" let mapleader = "\<Space>"
+
 " Space w で保存 Space q で終了
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
@@ -54,6 +55,7 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader><Leader> V
 " 不要なウィンドウのポップアップを抑制
 map q: :q
+
 
 " OSの判定
 if has('win32')
@@ -106,8 +108,10 @@ function! s:source_rc(path, ...) abort "{{{
 endfunction
 "}}}
 
+
 " dein.rc.vimを読み込む
 call s:source_rc('dein.rc.vim')
+
 
 " if vim8.0 or latest, Disable packpath
 if v:version >= 800

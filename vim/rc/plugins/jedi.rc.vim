@@ -7,7 +7,7 @@ elseif python_major_version == 3 && has('python3')
     python3 None
 endif
 
-let g:jedi#auto_initialization = 0
+let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 1
 
 " for w/ neocomplete
@@ -15,7 +15,7 @@ setlocal omnifunc=jedi#completions
 " docstring非表示
 setlocal completeopt-=preview
 let g:jedi#completions_enabled = 0
-let g:jedi#smart_auto_mappings = 0
+let g:jedi#smart_auto_mappings = 1
 let g:jedi#show_call_signatures = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0

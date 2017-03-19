@@ -48,5 +48,8 @@ if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
+" なんか毎回これしないと deopleteがうまくいかない💢
+call dein#recache_runtimepath()
+
 "End dein settings------------------------
 
