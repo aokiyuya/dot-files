@@ -35,6 +35,7 @@ call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
 call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy': 1})
 if has('nvim')
 	call dein#load_toml('~/.vim/rc/deineo.toml', {'lazy': 0})
+	call dein#load_toml('~/.vim/rc/deineolazy.toml', {'lazy': 1})
 endif
 
 call dein#end()
@@ -48,8 +49,11 @@ if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
-" なんか毎回これしないと deopleteがうまくいかない💢
-call dein#recache_runtimepath()
+
+if has('nvim')
+	" なんか毎回これしないと deopleteがうまくいかない
+	au VimLeave * call dein#recache_runtimepath()
+endif
 
 "End dein settings------------------------
 

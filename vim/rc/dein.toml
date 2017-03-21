@@ -29,10 +29,6 @@ set background=dark
 au MyAutoCmd VimEnter * nested colorscheme badwolf
 '''
 
-# lazyに移動するか?
-[[plugins]]
-repo = 'rhysd/github-complete.vim'
-
 [[plugins]] # toml syntax
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
@@ -40,11 +36,14 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
-[[plugins]]
-repo =  'evidens/vim-twig'
+# [[plugins]]
+# repo =  'evidens/vim-twig'
 
 [[plugins]]
 repo = 'scrooloose/syntastic'
+hook_add = '''
+let g:syntastic_check_on_wq = 0
+'''
 
 [[plugins]]
 repo = 'aokiyuya/neosnippet-snippets'
@@ -54,9 +53,6 @@ repo = 'Shougo/vimshell'
 
 [[plugins]]
 repo = 'supermomonga/vimshell-kawaii.vim'
-
-[[plugins]]
-repo = 'drillbits/nyan-modoki.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -73,9 +69,9 @@ repo = 'tyru/open-browser.vim'
 on_ft = 'markdown'
 
 # python用
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-on_ft = 'python'
+# [[plugins]]
+# repo = 'nathanaelkane/vim-indent-guides'
+# on_ft = 'python'
 
 [[plugins]]
 repo = 'hdima/python-syntax'

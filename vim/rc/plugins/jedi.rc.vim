@@ -1,4 +1,3 @@
-
 "jedi setting
 let python_major_version = system("python -c 'import sys; print(sys.version_info[0])'")
 if python_major_version == 2 && has('python')
@@ -33,14 +32,12 @@ let g:jedi#rename_command = "[jedi]r"
 let g:jedi#usages_command = "[jedi]n"
 
 
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
+if !(has('nvim'))
+	if !exists('g:neocomplete#force_omni_input_patterns')
+		let g:neocomplete#force_omni_input_patterns = {}
+	endif
+	let g:neocomplete#force_omni_input_patterns.python =
+	  \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 endif
-
-
-let g:neocomplete#force_omni_input_patterns.python =
-  \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-
 
 

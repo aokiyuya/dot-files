@@ -46,7 +46,7 @@ set fileformats=unix,dos,mac
 " 256色描画
 set t_Co=256
 " Space をLeader にしてみる
-" let mapleader = "\<Space>"
+let mapleader = "\<Space>"
 
 " Space w で保存 Space q で終了
 nnoremap <Leader>w :w<CR>
