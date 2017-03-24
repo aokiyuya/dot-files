@@ -1,8 +1,17 @@
+" __  __                     _          _    __ _
+" \ \/ /__  __ __  __ ____ _( )_____   | |  / /(_)____ ___   _____ _____
+"  \  // / / // / / // __ `/|// ___/   | | / // // __ `__ \ / ___// ___/
+"  / // /_/ // /_/ // /_/ /  (__  )    | |/ // // / / / / // /   / /__
+" /_/ \__,_/ \__, / \__,_/  /____/     |___//_//_/ /_/ /_//_/    \___/
+"          /____/
 " my vim settings
-" Author: Fujie lab members
+"
+" Author: Yuya Aoki
 
-" syntax
-syntax on
+" to use multi byte character
+set encoding=utf-8
+scriptencoding utf-8
+
 " 行数表示
 set number
 " swapfileを作らない
@@ -20,8 +29,6 @@ set smartcase
 set hlsearch
 " インクリメント検索
 set incsearch
-" vi互換を切る
-set nocompatible
 " カーソルで行をまたげるようにする
 set whichwrap=b,s,h,l,<,>,[,]
 " tabなどを可視化する
@@ -37,7 +44,6 @@ set ambiwidth=double
 " pathに各拡張子用の設定を書いた物を追加
 set runtimepath+=~/.vim/,~/.vim/ftplugin/
 " エンコーディングの設定
-set encoding=utf-8
 set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
 " もしutf-8ですべてのファイルを管理したければ
 set fileencoding=utf-8
@@ -46,7 +52,7 @@ set fileformats=unix,dos,mac
 " 256色描画
 set t_Co=256
 " Space をLeader にしてみる
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 " Space w で保存 Space q で終了
 nnoremap <Leader>w :w<CR>
@@ -54,7 +60,8 @@ nnoremap <Leader>q :q<CR>
 " Space SpaceでVisual Line
 nnoremap <Leader><Leader> V
 " 不要なウィンドウのポップアップを抑制
-map q: :q
+nnoremap q: :q
+
 
 
 " OSの判定

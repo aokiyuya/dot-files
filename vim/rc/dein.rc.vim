@@ -38,12 +38,12 @@ if has('nvim')
 	call dein#load_toml('~/.vim/rc/deineolazy.toml', {'lazy': 1})
 endif
 
+if dein#tap('deoplete.nvim') && has('nvim')
+  call dein#disable('neocomplete.vim')
+endif
+
 call dein#end()
 call dein#save_state()
-
-if dein#check_install()
-  call dein#install()
-endif
 
 if has('vim_starting') && dein#check_install()
   call dein#install()
@@ -56,4 +56,5 @@ if has('nvim')
 endif
 
 "End dein settings------------------------
+filetype plugin indent on
 
