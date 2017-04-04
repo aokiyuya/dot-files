@@ -8,7 +8,7 @@
 "
 " Author: Yuya Aoki
 
-" to use multi byte character
+"settings to use multi byte character
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -20,10 +20,11 @@ set noswapfile
 set cmdheight=2
 " ファイル名表示
 set title
-" コマンドでも補完が聞くように
+" コマンドでも補完がきくように
 set wildmenu
 " 小文字で検索したとき大文字小文字を無視する
 set ignorecase
+" 検索キーワードが大文字を含む時だけ🐛
 set smartcase
 " 検索結果にハイライトをかける
 set hlsearch
@@ -39,7 +40,7 @@ set backspace=indent,eol,start
 " タブ幅4
 set tabstop=4
 set shiftwidth=4
-" マルチバイト用
+" マルチバイト用()
 set ambiwidth=double
 " pathに各拡張子用の設定を書いた物を追加
 set runtimepath+=~/.vim/,~/.vim/ftplugin/
@@ -53,7 +54,15 @@ set fileformats=unix,dos,mac
 set t_Co=256
 " Space をLeader にしてみる
 let g:mapleader = "\<Space>"
+" クリップボード連携したい
+set clipboard+=unnamed
 
+
+
+" mapはキー設定
+" nnoremap が normal mode,
+" inoremap が insert mode,
+" cnoremap が command line mode
 " Space w で保存 Space q で終了
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
@@ -61,6 +70,10 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader><Leader> V
 " 不要なウィンドウのポップアップを抑制
 nnoremap q: :q
+
+inoremap [ []<LEFT>
+inoremap { {}<LEFT>
+inoremap ( ()<LEFT>
 
 
 
