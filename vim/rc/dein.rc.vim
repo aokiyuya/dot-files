@@ -26,35 +26,28 @@ let g:dein#install_message_type = 'none'
 let g:dein#enable_notificiation = 1
 
 " vimrc や toml に更新があれば実行
-if !dein#load_state(s:path)
-	finish
+if dein#load_state(s:path)
+	call dein#begin(s:path, expand('<sfile>'))
+	call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
+	call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy': 1})
+	if has('nvim')
+		call dein#load_toml('~/.vim/rc/deineo.toml', {'lazy': 0})
+		call dein#load_toml('~/.vim/rc/deineolazy.toml', {'lazy': 1})
+	endif
+	if dein#tap('deoplete.nvim') && has('nvim')
+	  call dein#disable('neocomplete.vim')
+	endif
+	call dein#end()
+	call dein#save_state()
+	if has('vim_starting') && dein#check_install()
+	  call dein#install()
+	endif
 endif
-
-call dein#begin(s:path, expand('<sfile>'))
-call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})
-call dein#load_toml('~/.vim/rc/deinlazy.toml', {'lazy': 1})
-if has('nvim')
-	call dein#load_toml('~/.vim/rc/deineo.toml', {'lazy': 0})
-	call dein#load_toml('~/.vim/rc/deineolazy.toml', {'lazy': 1})
-endif
-
-if dein#tap('deoplete.nvim') && has('nvim')
-  call dein#disable('neocomplete.vim')
-endif
-
-call dein#end()
-call dein#save_state()
-
-if has('vim_starting') && dein#check_install()
-  call dein#install()
-endif
-
 
 if has('nvim')
 	" なんか毎回これしないと deopleteがうまくいかない
-	au VimLeave * call dein#recache_runtimepath()
+	" au VimLeave * call dein#recache_runtimepath()
 endif
 
 "End dein settings------------------------
-filetype plugin indent on
 
