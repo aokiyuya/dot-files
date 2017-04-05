@@ -44,10 +44,5 @@ if dein#load_state(s:path)
 	endif
 endif
 
-if has('nvim')
-	" なんか毎回これしないと deopleteがうまくいかない
-	" au VimLeave * call dein#recache_runtimepath()
-endif
-
 "End dein settings------------------------
 
