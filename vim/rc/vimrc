@@ -66,6 +66,7 @@ set clipboard+=unnamed
 " Space w で保存 Space q で終了
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap ; :
 " Space SpaceでVisual Line
 nnoremap <Leader><Leader> V
 " 不要なウィンドウのポップアップを抑制

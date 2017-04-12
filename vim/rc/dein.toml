@@ -97,3 +97,34 @@ on_ft = 'cpp'
 [[plugins]]
 repo = 'Shougo/neco-syntax'
 
+
+# plugins for twitter
+[[plugins]]
+repo = 'basyura/TweetVim'
+on_ft = 'twitter'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+on_ft = 'twitter'
+
+[[plugins]]
+repo = 'basyura/twibill.vim'
+on_ft = 'twitter'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = 'twitter'
+
+[[plugins]]
+repo = 'h1mesuke/unite-outline'
+on_ft = 'twitter'
+
+[[plugins]]
+repo = 'basyura/bitly.vim'
+on_ft = 'twitter'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+on_ft = 'twitter'
+
+
