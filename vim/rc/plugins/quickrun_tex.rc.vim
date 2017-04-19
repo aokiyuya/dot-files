@@ -7,7 +7,7 @@ set vb t_vb=
 autocmd FileType plaintex setlocal filetype=tex
 
 if has("vim-quickrun")
-  autocmd MyAutoCmd BufWritePost *.tex call quickrun#run() 
+  autocmd MyAutoCmd BufWritePost *.tex call quickrun#run()
 endif
 let g:quickrun_config = {}
 let g:quickrun_config.tex = {

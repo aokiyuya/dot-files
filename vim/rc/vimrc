@@ -56,8 +56,12 @@ set t_Co=256
 let g:mapleader = "\<Space>"
 " クリップボード連携したい
 set clipboard+=unnamed
-
-
+" show match
+set showmatch
+" input match ( Ex. (,[,", and other ) time * 0.1 sec
+set matchtime=1
+" length of complete list
+set pumheight=10
 
 " mapはキー設定
 " nnoremap が normal mode,
@@ -66,16 +70,18 @@ set clipboard+=unnamed
 " Space w で保存 Space q で終了
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+" for US key
 nnoremap ; :
 " Space SpaceでVisual Line
 nnoremap <Leader><Leader> V
-" 不要なウィンドウのポップアップを抑制
+" 打ち間違い is うっとおしい
 nnoremap q: :q
+" +-で数字増えたり減ったりするよ
+nnoremap + <C-a>
+nnoremap - <C-x>
 
-inoremap [ []<LEFT>
 inoremap { {}<LEFT>
 inoremap ( ()<LEFT>
-
 
 
 " OSの判定
