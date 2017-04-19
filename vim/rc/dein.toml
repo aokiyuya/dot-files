@@ -2,6 +2,9 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+
 [[plugins]] # statusline の設定
 repo = 'itchyny/lightline.vim'
 
@@ -58,6 +61,7 @@ repo = 'supermomonga/vimshell-kawaii.vim'
 repo = 'thinca/vim-quickrun'
 on_ft = 'tex'
 hook_source = '''source ~/.vim/rc/plugins/quickrun_tex.rc.vim'''
+depends = 'vimproc.vim'
 
 # markdown用
 [[plugins]]

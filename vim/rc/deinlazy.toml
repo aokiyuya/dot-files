@@ -1,10 +1,10 @@
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-on_source = ['unite.vim', 'vimshell.vim']
+# [[plugins]]
+# repo = 'Shougo/vimproc.vim'
+# build = 'make'
+# on_source = ['unite.vim', 'vimshell.vim']
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
@@ -68,5 +68,10 @@ repo = 'lambdalisue/vim-pyenv'
 depends = ['jedi-vim']
 on_ft = 'python'
 if = "!has('nvim')"
+
+
+
+[[plugins]]
+repo = 'splitjoin.vim'
 
 
