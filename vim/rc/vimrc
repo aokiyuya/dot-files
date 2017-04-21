@@ -77,8 +77,8 @@ nnoremap <Leader><Leader> V
 " 打ち間違い is うっとおしい
 nnoremap q: :q
 " +-で数字増えたり減ったりするよ
-nnoremap - <C-a>
-nnoremap + <C-x>
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 inoremap { {}<LEFT>
 inoremap ( ()<LEFT>
