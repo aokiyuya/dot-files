@@ -1,9 +1,8 @@
-" __  __                     _          _    __ _
 " \ \/ /__  __ __  __ ____ _( )_____   | |  / /(_)____ ___   _____ _____
 "  \  // / / // / / // __ `/|// ___/   | | / // // __ `__ \ / ___// ___/
 "  / // /_/ // /_/ // /_/ /  (__  )    | |/ // // / / / / // /   / /__
 " /_/ \__,_/ \__, / \__,_/  /____/     |___//_//_/ /_/ /_//_/    \___/
-"          /____/
+"           /____/
 " my vim settings
 "
 " Author: Yuya Aoki
@@ -22,8 +21,7 @@ set cmdheight=2
 set title
 " コマンドでも補完がきくように
 set wildmenu
-" 小文字で検索したとき大文字小文字を無視する
-set ignorecase
+" 小文字で検索したとき大文字小文字を無視する set ignorecase
 " 検索キーワードが大文字を含む時だけ🐛
 set smartcase
 " 検索結果にハイライトをかける
@@ -54,7 +52,7 @@ set fileformats=unix,dos,mac
 set t_Co=256
 " Space をLeader にしてみる
 let g:mapleader = "\<Space>"
-" クリップボード連携したい
+" クリップボード連携
 set clipboard+=unnamed
 " show match
 set showmatch
@@ -67,6 +65,7 @@ set pumheight=10
 " nnoremap が normal mode,
 " inoremap が insert mode,
 " cnoremap が command line mode
+" etc. etc.
 " Space w で保存 Space q で終了
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
@@ -80,17 +79,54 @@ nnoremap q: :q
 nnoremap + <C-a>
 nnoremap - <C-x>
 
+" <>をうつのが面倒なので矢印で代替するよ><
 nnoremap <right> V>
 nnoremap <left> V<
+vnoremap <right> >
+vnoremap <left> <
+
+" <C-f><C-b>が直感的でないので<C-j><C-k>で代替
 nnoremap <C-j> <C-f>
 nnoremap <C-k> <C-b>
 
+" 実際の行でなく表示されてる行で移動を考える
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk h
 
+" $,0はポインタだが直感的でないので変更
+nnoremap <Leader><right> $
+nnoremap <Leader><left> 0
+
+" 対応する括弧を自動入力
 inoremap { {}<LEFT>
+inoremap < <><LEFT>
+inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
 
-vnoremap <right> >
-vnoremap <left> <
+" みんなやってるのでためしに導入してみる
+inoremap jj <ESC>
+" 同じノリで検索に移る
+" inoremap ff <ESC>/
+" ファイナルファンタジーでよく使うので廃止
+inoremap <C-f> <ESC>/
+
+" 空行挿入
+nnoremap <Leader>o o<ESC>
+nnoremap <Leader>O O<ESC>
+
+" I don't use EX MODE
+nnoremap Q <Nop>
+
+" 画面分割
+nnoremap <Leader>s :vsplit<CR>
+
+" 画面移動
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>k <C-w>k
 
 " OSの判定
 if has('win32')
@@ -104,7 +140,7 @@ else
 endif
 
 " put esc-key for delete highlight
-nmap <silent> <Esc><Esc> :nohlsearch<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " reset augroup
 augroup MyAutoCmd
@@ -162,10 +198,10 @@ endif
 " neosnippet
 " SuperTab like snippets behavior.
 " shift tabでジャンプできるようにする設定
-imap <expr><S-TAB> neosnippet#expandable_or_jumpable() ?
+inoremap <expr><S-TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><S-TAB> neosnippet#expandable_or_jumpable() ?
+snoremap <expr><S-TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: "\<TAB>"
 
