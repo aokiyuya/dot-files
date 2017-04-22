@@ -80,9 +80,17 @@ nnoremap q: :q
 nnoremap + <C-a>
 nnoremap - <C-x>
 
+nnoremap <right> V>
+nnoremap <left> V<
+nnoremap <C-j> <C-f>
+nnoremap <C-k> <C-b>
+
+
 inoremap { {}<LEFT>
 inoremap ( ()<LEFT>
 
+vnoremap <right> >
+vnoremap <left> <
 
 " OSの判定
 if has('win32')
