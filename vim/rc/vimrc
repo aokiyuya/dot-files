@@ -153,6 +153,7 @@ autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
 autocmd BufNewFile *.c 0r $HOME/.vim/template/template.cpp
 autocmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
 autocmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
+autocmd BufNewFile 201[0-9]-[01][0-9]-[0-3][0-9].md 0r $HOME/.vim/template/template.md
 
 
 " 引用 by https://github.com/Shougo/shougo-s-github/blob/master/vim/rc/vimrc

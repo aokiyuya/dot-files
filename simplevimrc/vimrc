@@ -1,34 +1,136 @@
-" my vim simple settings
-" Author: yuya aoki
-"	and Fujie lab members
+" \ \/ /__  __ __  __ ____ _( )_____   | |  / /(_)____ ___   _____ _____
+"  \  // / / // / / // __ `/|// ___/   | | / // // __ `__ \ / ___// ___/
+"  / // /_/ // /_/ // /_/ /  (__  )    | |/ // // / / / / // /   / /__
+" /_/ \__,_/ \__, / \__,_/  /____/     |___//_//_/ /_/ /_//_/    \___/
+"           /____/
+" my vim settings
+"
+" Author: Yuya Aoki
 
-set nocompatible
-set noswapfile
-set cmdheight=2
-set title
+"settings to use multi byte character
 set encoding=utf-8
 scriptencoding utf-8
-set fileformats=unix,dos,mac
-set tabstop=4
-set softtabstop=4
-set autoindent
-set smartindent
-set shiftwidth=4
-set incsearch
-set ignorecase
-set smartcase
-set hlsearch
-nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
-set whichwrap=b,s,h,l,<,>,[,],~
+
+" 行数表示
 set number
-set backspace=indent,eol,start
-set showmatch
-source $VIMRUNTIME/macros/matchit.vim
+" swapfileを作らない
+set noswapfile
+" コマンド打つ場所の高さ
+set cmdheight=2
+" ファイル名表示
+set title
+" コマンドでも補完がきくように
 set wildmenu
-set history=500
+" 小文字で検索したとき大文字小文字を無視する
+set ignorecase
+" 検索キーワードが大文字を含む時だけ🐛
+set smartcase
+" 検索結果にハイライトをかける
+set hlsearch
+" インクリメント検索
+set incsearch
+" カーソルで行をまたげるようにする
+set whichwrap=b,s,h,l,<,>,[,]
+" tabなどを可視化する
 set list
 set listchars=tab:>-,extends:<,trail:-
-set expandtab shiftwidth=4
+" バックスペースでindent, end of low, startを削除できるように
+set backspace=indent,eol,start
+" タブ幅4
+set tabstop=4
+set shiftwidth=4
+" マルチバイト用()
+set ambiwidth=double
+" pathに各拡張子用の設定を書いた物を追加
+set runtimepath+=~/.vim/,~/.vim/ftplugin/
+" エンコーディングの設定
+set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
+" もしutf-8ですべてのファイルを管理したければ
+set fileencoding=utf-8
+" この優先順位でファイルを保存する形式を決める
+set fileformats=unix,dos,mac
+" 256色描画
+set t_Co=256
+" Space をLeader にしてみる
+let g:mapleader = "\<Space>"
+" クリップボード連携
+set clipboard+=unnamed
+" show match
+set showmatch
+" input match ( Ex. (,[,", and other ) time * 0.1 sec
+set matchtime=1
+" length of complete list
+set pumheight=10
+
+set history=500
+set cursorline
+
+" mapはキー設定
+" nnoremap が normal mode,
+" inoremap が insert mode,
+" cnoremap が command line mode
+" etc. etc.
+" Space w で保存 Space q で終了
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+" for US key
+nnoremap ; :
+" Space SpaceでVisual Line
+nnoremap <Leader><Leader> V
+" 打ち間違い is うっとおしい
+nnoremap q: :q
+" +-で数字増えたり減ったりするよ
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" <>をうつのが面倒なので矢印で代替するよ><
+nnoremap <right> V>
+nnoremap <left> V<
+vnoremap <right> >
+vnoremap <left> <
+
+" <C-f><C-b>が直感的でないので<C-j><C-k>で代替
+nnoremap <C-j> <C-f>
+nnoremap <C-k> <C-b>
+
+" 実際の行でなく表示されてる行で移動を考える
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk h
+
+" $,0はポインタだが直感的でないので変更
+nnoremap <Leader><right> $
+nnoremap <Leader><left> 0
+
+" 対応する括弧を自動入力
+inoremap { {}<LEFT>
+inoremap < <><LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+
+" みんなやってるのでためしに導入してみる
+inoremap jj <ESC>
+" 同じノリで検索に移る
+" inoremap ff <ESC>/
+" ファイナルファンタジーでよく使うので廃止
+inoremap <C-f> <ESC>/
+
+" 空行挿入
+nnoremap <Leader>o o<ESC>
+nnoremap <Leader>O O<ESC>
+
+" I don't use EX MODE
+nnoremap Q <Nop>
+
+" 画面分割
+nnoremap <Leader>s :vsplit<CR>
+
+" 画面移動
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>k <C-w>k
 
 set background=dark
 syntax enable
@@ -36,7 +138,6 @@ highlight Normal ctermbg=black ctermfg=grey
 highlight StatusLine term=none cterm=none ctermfg=black ctermbg=grey
 highlight CursorLine term=none cterm=none ctermfg=none ctermbg=darkgray
 
-set cursorline
 
 set completeopt=menuone
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
@@ -50,14 +151,6 @@ autocmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%=%l/%L,%c%V%8P
 set laststatus=2
 
-
-" Space $B$r(BLeader $B$K$7$F$_$k(B
-let mapleader = "\<Space>"
-" Space w $B$GJ]B8(B Space q $B$G=*N;(B
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-" Space Space$B$G(BVisual Line
-nnoremap <Leader><Leader> V
-" $BITMW$J%&%#%s%I%&$N%]%C%W%"%C%W$rM^@)(B
-map q: :q
+filetype plugin indent on
+syntax on
 
