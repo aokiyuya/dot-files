@@ -21,7 +21,8 @@ set cmdheight=2
 set title
 " コマンドでも補完がきくように
 set wildmenu
-" 小文字で検索したとき大文字小文字を無視する set ignorecase
+" 小文字で検索したとき大文字小文字を無視する
+set ignorecase
 " 検索キーワードが大文字を含む時だけ🐛
 set smartcase
 " 検索結果にハイライトをかける
@@ -97,8 +98,8 @@ nnoremap k gk
 nnoremap gk h
 
 " $,0はポインタだが直感的でないので変更
-nnoremap <Leader><right> $
-nnoremap <Leader><left> 0
+nnoremap L $
+nnoremap H 0
 
 " 対応する括弧を自動入力
 inoremap { {}<LEFT>
@@ -131,12 +132,20 @@ nnoremap <Leader>k <C-w>k
 
 " 使いにくいキーを置換
 nnoremap m %
-nnoremap H ^
+" t を全然使わないのでバッファの移動に割り当て
+"
+nnoremap t gf
+nnoremap T <C-^>
 " 本来押しにくいけど慣れすぎて頻繁に押せるキーを置換
-nnoremap  o
+nnoremap <CR> o
 nnoremap <BS> X
 
+" 括弧の後ろまで飛んで編集したい
 inoremap <C-w> <Esc>l%a
+
+" *をより簡単に
+nnoremap <Space>/ *
+
 
 " OSの判定
 if has('win32')
