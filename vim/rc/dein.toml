@@ -64,12 +64,6 @@ repo = 'Shougo/vimshell'
 [[plugins]]
 repo = 'supermomonga/vimshell-kawaii.vim'
 
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-on_ft = 'tex'
-hook_source = '''source ~/.vim/rc/plugins/quickrun_tex.rc.vim'''
-depends = 'vimproc.vim'
-
 # markdown用
 [[plugins]]
 repo = 'plasticboy/vim-markdown'

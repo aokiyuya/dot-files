@@ -131,12 +131,10 @@ nnoremap <Leader>k <C-w>k
 
 " 使いにくいキーを置換
 nnoremap m %
-nnoremap H ^
-" 本来押しにくいけど慣れすぎて頻繁に押せるキーを置換
-nnoremap  o
-nnoremap <BS> X
+nnoremap , ^
 
 inoremap <C-w> <Esc>l%a
+
 
 " OSの判定
 if has('win32')
