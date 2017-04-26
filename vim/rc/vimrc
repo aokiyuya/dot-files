@@ -82,8 +82,10 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 
 " <>をうつのが面倒なので矢印で代替するよ><
-nnoremap <right> V>
-nnoremap <left> V<
+nnoremap <right> >>
+nnoremap <left> <<
+nnoremap > >>
+nnoremap < <<
 vnoremap <right> >
 vnoremap <left> <
 
@@ -120,6 +122,10 @@ nnoremap <Leader>O O<ESC>
 
 " I don't use EX MODE
 nnoremap Q <Nop>
+" 怖いので誤作動をなくす
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+
 
 " 画面分割
 nnoremap <Leader>s :vsplit<CR>
@@ -146,6 +152,7 @@ inoremap <C-w> <Esc>l%a
 " *をより簡単に
 nnoremap <Space>/ *
 
+nnoremap <C-p> a<C-r>=strftime('%Y-%m-%d %H:%M:%S')<Return><Esc>
 
 " OSの判定
 if has('win32')
