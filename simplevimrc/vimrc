@@ -63,7 +63,6 @@ set matchtime=1
 set pumheight=10
 
 set history=500
-set cursorline
 
 " mapはキー設定
 " nnoremap が normal mode,
@@ -111,6 +110,7 @@ inoremap ( ()<LEFT>
 
 " みんなやってるのでためしに導入してみる
 inoremap jj <ESC>
+nnoremap <ESC><ESC> :nohlsearch<CR>
 " 同じノリで検索に移る
 " inoremap ff <ESC>/
 " ファイナルファンタジーでよく使うので廃止
