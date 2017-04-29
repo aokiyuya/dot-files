@@ -176,12 +176,12 @@ augroup MyAutoCmd
 augroup END
 
 " road template
-autocmd BufNewFile *.py 0r $HOME/.vim/template/template.py
-autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
-autocmd BufNewFile *.c 0r $HOME/.vim/template/template.cpp
-autocmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
-autocmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
-autocmd BufNewFile 201[0-9]-[01][0-9]-[0-3][0-9].md 0r $HOME/tmp/template.md
+autocmd MyAutoCmd BufNewFile *.py 0r $HOME/.vim/template/template.py
+autocmd MyAutoCmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
+autocmd MyAutoCmd BufNewFile *.c 0r $HOME/.vim/template/template.cpp
+autocmd MyAutoCmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
+autocmd MyAutoCmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
+autocmd MyAutoCmd BufNewFile 201[0-9]-[01][0-9]-[0-3][0-9].md 0r $HOME/tmp/template.md
 
 " 引用 by https://rcmdnk.com/blog/2017/03/10/computer-mac-vim/
 " これでIME無効化できるはずだよ
@@ -236,16 +236,6 @@ let file_name = expand('%')
 if has('vim_starting') &&  file_name == ''
   autocmd VimEnter * NERDTree ./
 endif
-
-" neosnippet
-" SuperTab like snippets behavior.
-" shift tabでジャンプできるようにする設定
-inoremap <expr><S-TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-snoremap <expr><S-TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
