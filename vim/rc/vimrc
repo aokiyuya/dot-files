@@ -72,6 +72,11 @@ set pumheight=10
 " Space w で保存 Space q で終了
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+" うーん
+nnoremap <Leader>z :wq<CR>
+" 本来押しにくいけど慣れすぎて頻繁に押せるキーを置換
+nnoremap <CR> o
+nnoremap <BS> X
 " for US key
 " nnoremap ; :
 " Space SpaceでVisual Line
@@ -146,20 +151,24 @@ nnoremap m %
 nnoremap t gf
 nnoremap T <C-^>
 
-" 本来押しにくいけど慣れすぎて頻繁に押せるキーを置換
-nnoremap <CR> o
-" こいつはちょっと考え物
-" nnoremap <BS> X
-" <C-h>がつぶれるので廃止
-
 " 括弧の後ろまで飛んで編集したい
 inoremap <C-w> <Esc>l%a
 
 " *をより簡単に
 nnoremap <Space>/ *
 
+" 日付入力ショートカット
 nnoremap <Leader>d a<C-r>=strftime('%Y-%m-%d')<Return><Esc>
 nnoremap <Leader>t a<C-r>=strftime('%H:%M:%S')<Return><Esc>
+
+" Vimgrep
+nnoremap <Leader>v :vim //j ./* | cw
+
+" edit vimrc
+nnoremap <Leader>. :<C-u>tabedit ~/.vim/rc/vimrc<CR>
+
+" use NERDTree
+nnoremap <Leader>e :NERDTree<CR>
 
 " OSの判定
 if has('win32')
