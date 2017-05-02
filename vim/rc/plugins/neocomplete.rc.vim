@@ -1,5 +1,4 @@
-" ---------- neocomplete.vim設定 ----------
-
+" ---------- neocomplete.vim settings ----------
 
 let g:neocomplete#disable_auto_complete = 0
 
@@ -65,7 +64,7 @@ inoremap <silent><expr> <TAB>
       \ neocomplete#start_manual_complete()
 function! s:check_back_space() abort "{{{
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1]  =~? '\s'
 endfunction"}}}
 " <C-b>: completion back.
 inoremap <expr><C-b> pumvisible() ? "\<C-p>" : "\<C-h>"

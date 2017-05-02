@@ -6,6 +6,7 @@
 " my vim settings
 "
 " Author: Yuya Aoki
+" Final update: 2017-05-02 11:22:31
 
 "settings to use multi byte character
 set encoding=utf-8
@@ -72,7 +73,7 @@ set pumheight=10
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 " for US key
-nnoremap ; :
+" nnoremap ; :
 " Space SpaceでVisual Line
 nnoremap <Leader><Leader> V
 " 打ち間違い is うっとおしい
@@ -100,8 +101,8 @@ nnoremap k gk
 nnoremap gk h
 
 " $,0はポインタだが直感的でないので変更
-nnoremap L $
-nnoremap H 0
+nnoremap <C-l> $
+nnoremap <C-h> 0
 
 " 対応する括弧を自動入力
 inoremap { {}<LEFT>
@@ -122,10 +123,13 @@ nnoremap <Leader>O O<ESC>
 
 " I don't use EX MODE
 nnoremap Q <Nop>
+
 " 怖いので誤作動をなくす
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 
+" .とhjklを素早く打ち込みたい時に手の移動が面倒なので試験的に
+nnoremap z .
 
 " 画面分割
 nnoremap <Leader>s :vsplit<CR>
@@ -139,12 +143,14 @@ nnoremap <Leader>k <C-w>k
 " 使いにくいキーを置換
 nnoremap m %
 " t を全然使わないのでバッファの移動に割り当て
-"
 nnoremap t gf
 nnoremap T <C-^>
+
 " 本来押しにくいけど慣れすぎて頻繁に押せるキーを置換
 nnoremap <CR> o
-nnoremap <BS> X
+" こいつはちょっと考え物
+" nnoremap <BS> X
+" <C-h>がつぶれるので廃止
 
 " 括弧の後ろまで飛んで編集したい
 inoremap <C-w> <Esc>l%a
@@ -152,17 +158,17 @@ inoremap <C-w> <Esc>l%a
 " *をより簡単に
 nnoremap <Space>/ *
 
-nnoremap <C-p> a<C-r>=strftime('%Y-%m-%d')<Return><Esc>
-nnoremap <C-l> a<C-r>=strftime('%H:%M:%S')<Return><Esc>
+nnoremap <Leader>d a<C-r>=strftime('%Y-%m-%d')<Return><Esc>
+nnoremap <Leader>t a<C-r>=strftime('%H:%M:%S')<Return><Esc>
 
 " OSの判定
 if has('win32')
-	let ostype = "Win"
+	let ostype = 'Win'
 elseif has('mac')
-	let ostype = "Mac"
+	let ostype = 'Mac'
 	set shell=sh
 else
-	let ostype = system("uname")
+	let ostype = system('uname')
 	set shell=sh
 endif
 
@@ -233,8 +239,8 @@ endif
 
 " 引数なしでvimを開くとNERDTreeを起動
 let file_name = expand('%')
-if has('vim_starting') &&  file_name == ''
-  autocmd VimEnter * NERDTree ./
+if has('vim_starting') &&  file_name ==? ''
+  autocmd MyAutoCmd VimEnter * NERDTree ./
 endif
 
 " For snippet_complete marker.

@@ -3,19 +3,17 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ deoplete#manual_complete()
-" Ctrl - a で決定 ( 多分使う必要ないけど )
+" select use <C-a>
 inoremap <silent><expr> <C-A>
       \ pumvisible() ? "\<C-j><BS>" :
       \ deoplete#manual_complete()
 
 function! s:check_back_space() abort "{{{
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1]  =~? '\s'
 endfunction"}}}
 
-" <S-TAB>: completion back.
-" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
-" -> S-TAB は snippet に 使いたいかも〜
+" <C-p>: completion back.
 inoremap <expr><C-p>  pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " <C-h>, <BS>: close popup and delete backword char.

@@ -82,4 +82,8 @@ if = "!has('nvim')"
 [[plugins]]
 repo = 'splitjoin.vim'
 
-
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+hook_source = '''
+set helplang& helplang=ja,en
+'''

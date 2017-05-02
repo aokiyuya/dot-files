@@ -1,16 +1,14 @@
-" shougo-s-githubを参考に改善してみた
 " dein settings -----------------------------------------------------
 " set cache path
 let $CACHE = expand('~/.cache')
 
 " Load dein
-" まずは dein の path を通す
 set runtimepath+=$CACHE/dein/repos/github.com/Shougo/dein.vim
 let s:path = expand('$CACHE/dein')
 
-" deinなければ自動install
-if s:path != '' || &runtimepath !~ '/dein.vim'
-  if s:path == '' && &runtimepath !~ '/dein.vim'
+" auto install dein
+if s:path !=? '' || &runtimepath !~? '/dein.vim'
+  if s:path ==? '' && &runtimepath !~? '/dein.vim'
      let s:path = expand('$CACHE/dein')
     \. '/repos/github.com/Shougo/dein.vim'
     if !isdirectory(s:path)
@@ -25,7 +23,7 @@ let g:dein#install_progress_type = 'title'
 let g:dein#install_message_type = 'none'
 let g:dein#enable_notificiation = 1
 
-" vimrc や toml に更新があれば実行
+" update when vimrc (or dein) changed
 if dein#load_state(s:path)
 	call dein#begin(s:path, expand('<sfile>'))
 	call dein#load_toml('~/.vim/rc/dein.toml', {'lazy': 0})

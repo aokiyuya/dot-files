@@ -17,9 +17,7 @@ set listchars=tab:>-,extends:<,trail:-
 
 setlocal omnifunc=python3complete#Complete
 
-" <F5>で編集中のファイルを実行
-" MATLABと同じショートカット
-nmap <F5> :!python %
+nnoremap <Leader>c :!python %
 
 
 let python_highlight_all = 1
