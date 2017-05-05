@@ -1,5 +1,4 @@
 [[plugins]]
-
 repo = 'Shougo/neomru.vim'
 
 # [[plugins]]
@@ -68,7 +67,7 @@ repo = 'davidhalter/jedi-vim'
 if = "!has('nvim')"
 on_ft = 'python'
 hook_source = '''
-source 'plugins/jedi.rc.vim'
+source ~/.vim/rc/plugins/jedi.rc.vim
 '''
 
 [[plugins]]

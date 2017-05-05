@@ -15,7 +15,12 @@ set softtabstop=4
 set path+=":/usr/local/Cellar/opencv/2.4.12_2/lib/python2.7/site-packages/"
 set listchars=tab:>-,extends:<,trail:-
 
-setlocal omnifunc=python3complete#Complete
+if has('python3')
+  setlocal omnifunc=python3complete#Complete
+endif
+if has('python')
+  setlocal omnifunc=pythoncomplete#Complete
+endif
 
 nnoremap <Leader>c :!python %
 
