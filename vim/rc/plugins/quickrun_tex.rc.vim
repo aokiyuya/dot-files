@@ -4,7 +4,7 @@
 ""
 set visualbell
 set vb t_vb=
-autocmd MyAutCmd FileType plaintex setlocal filetype=tex
+autocmd FileType plaintex setlocal filetype=tex
 
 if has('vim-quickrun')
   autocmd MyAutoCmd BufWritePost *.tex call quickrun#run()
