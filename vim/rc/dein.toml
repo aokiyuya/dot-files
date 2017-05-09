@@ -46,6 +46,7 @@ repo = 'scrooloose/nerdtree'
 repo = 'scrooloose/syntastic'
 hook_add = '''
 let g:syntastic_check_on_wq = 0
+let g:loaded_syntastic_python_pylint_checker = 0
 '''
 
 [[plugins]]

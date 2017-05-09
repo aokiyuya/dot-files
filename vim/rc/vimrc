@@ -81,11 +81,12 @@ nnoremap <BS> X
 " nnoremap ; :
 " Space SpaceでVisual Line
 nnoremap <Leader><Leader> V
+vnoremap <Leader> <ESC>
 " 打ち間違い is うっとおしい
 nnoremap q: :q
 " +-で数字増えたり減ったりするよ
-nnoremap + <C-a>
-nnoremap - <C-x>
+nnoremap - <C-a>
+nnoremap + <C-x>
 
 " <>をうつのが面倒なので矢印で代替するよ><
 nnoremap <right> >>
