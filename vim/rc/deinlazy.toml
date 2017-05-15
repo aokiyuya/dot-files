@@ -1,5 +1,4 @@
-[[plugins]]
-repo = 'Shougo/neomru.vim'
+[[plugins]] repo = 'Shougo/neomru.vim'
 
 # [[plugins]]
 # repo = 'Shougo/vimproc.vim'
@@ -86,3 +85,7 @@ repo = 'vim-jp/vimdoc-ja'
 hook_source = '''
 set helplang& helplang=ja,en
 '''
+
+[[plugins]]
+repo = 'szw/vim-tags'
+

@@ -22,7 +22,6 @@ if has('python')
   setlocal omnifunc=pythoncomplete#Complete
 endif
 
-nnoremap <Leader>c :!python %
 
 
 let python_highlight_all = 1

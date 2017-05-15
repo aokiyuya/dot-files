@@ -1,9 +1,15 @@
 " jedi setting
-let python_major_version = system("python -c 'import sys; print(sys.version_info[0])'")
-if python_major_version == 2 && has('python')
-    python None
-elseif python_major_version == 3 && has('python3')
-    python3 None
+
+if jedi#init_python()
+  function! s:jedi_auto_force_py_version() abort
+    let major_version = pyenv#python#get_internal_major_version()
+    call jedi#force_py_version(major_version)
+  endfunction
+  augroup vim-pyenv-custom-augroup
+    autocmd! *
+    autocmd User vim-pyenv-activate-post   call s:jedi_auto_force_py_version()
+    autocmd User vim-pyenv-deactivate-post call s:jedi_auto_force_py_version()
+  augroup END
 endif
 
 let g:jedi#completions_enabled = 0
@@ -18,8 +24,8 @@ setlocal completeopt-=preview
 
 let g:jedi#completions_command = '<C-n>'
 let g:jedi#goto_assignments_command = '<C-g>'
-let g:jedi#goto_definitions_command = '<C-d>'
-let g:jedi#documentation_command = '<C-k>'
+let g:jedi#goto_definitions_command = '<C-t>'
+let g:jedi#documentation_command = '<C-d>'
 let g:jedi#rename_command = '[jedi]r'
 let g:jedi#usages_command = '[jedi]n'
 

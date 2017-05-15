@@ -8,6 +8,10 @@
 " Author: Yuya Aoki
 " Final update: 2017-05-02 11:22:31
 
+
+" set options--------------- 
+" {{{
+
 "settings to use multi byte character
 set encoding=utf-8
 scriptencoding utf-8
@@ -62,7 +66,17 @@ set showmatch
 set matchtime=1
 " length of complete list
 set pumheight=10
+" settings for ctags, tag jump
+set tags+=./tags;
+" TODO:ハードコーディングになってしまっているが良い方法はないか
+set path+=~/.pyenv/versions/3.6.0/lib/python3.6/
 
+" }}}
+
+
+
+" mappings---------------
+" {{{
 
 " mapはキー設定
 " nnoremap が normal mode,
@@ -72,21 +86,22 @@ set pumheight=10
 " Space w で保存 Space q で終了
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap q<Space> :q<CR>
 " うーん
 nnoremap <Leader>z :wq<CR>
 " 本来押しにくいけど慣れすぎて頻繁に押せるキーを置換
 nnoremap <CR> o
-nnoremap <BS> X
+" nnoremap <BS> X
 " for US key
 " nnoremap ; :
 " Space SpaceでVisual Line
 nnoremap <Leader><Leader> V
 vnoremap <Leader> <ESC>
 " 打ち間違い is うっとおしい
-nnoremap q: :q
+nnoremap q: :q<CR>
 " +-で数字増えたり減ったりするよ
-nnoremap - <C-a>
-nnoremap + <C-x>
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 " <>をうつのが面倒なので矢印で代替するよ><
 nnoremap <right> >>
@@ -123,6 +138,13 @@ inoremap jj <ESC>
 " ファイナルファンタジーでよく使うので廃止
 inoremap <C-f> <ESC>/
 
+" 大文字小文字変換
+nnoremap gu vu
+nnoremap gU vU
+
+" コピーしたテキストを貼り付ける
+nnoremap <Leader>p "0p
+
 " 空行挿入
 nnoremap <Leader>o o<ESC>
 nnoremap <Leader>O O<ESC>
@@ -149,18 +171,33 @@ nnoremap <Leader>k <C-w>k
 " 使いにくいキーを置換
 nnoremap m %
 " t を全然使わないのでバッファの移動に割り当て
-nnoremap t gf
+" nnoremap t gf
+nnoremap t :vsplit<CR>gf
 nnoremap T <C-^>
 
+" バッファ移動
+nnoremap <silent>bp :bprevious<CR>
+nnoremap <silent>bn :bnext<CR>
+
+" タブ移動
+nnoremap <silent>tp :tabprevious<CR>
+nnoremap <silent>tn :tabnext<CR>
+
+" タブ操作
+nnoremap <silent>tl :tablast<CR>
+nnoremap <silent>tc :tabclose<CR>
+nnoremap <silent>nt :tabnew<CR>
+nnoremap <silent>tp :tabprevious<CR>
+
 " 括弧の後ろまで飛んで編集したい
-inoremap <C-w> <Esc>l%a
+inoremap <C-w> <Esc>%i
 
 " *をより簡単に
-nnoremap <Space>/ *
+nnoremap <Leader>/ *
 
 " 日付入力ショートカット
-nnoremap <Leader>d a<C-r>=strftime('%Y-%m-%d')<Return><Esc>
-nnoremap <Leader>t a<C-r>=strftime('%H:%M:%S')<Return><Esc>
+nnoremap <Leader>date a<C-r>=strftime('%Y/%m/%d')<Return><Esc>
+nnoremap <Leader>time a<C-r>=strftime('%H:%M:%S')<Return><Esc>
 
 " Vimgrep
 nnoremap <Leader>v :vim //j ./* | cw
@@ -170,6 +207,17 @@ nnoremap <Leader>. :<C-u>tabedit ~/.vim/rc/vimrc<CR>
 
 " use NERDTree
 nnoremap <Leader>e :NERDTree<CR>
+
+
+nnoremap <Leader>c :!python %<CR>
+
+nnoremap <Leader>f :%foldclose<CR>
+
+" put esc-key for delete highlight
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+
+" }}}
+
 
 " OSの判定
 if has('win32')
@@ -183,8 +231,6 @@ else
 endif
 
 
-" put esc-key for delete highlight
-nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " reset augroup
 augroup MyAutoCmd
@@ -267,3 +313,5 @@ highlight Normal ctermbg=none
 filetype plugin indent on
 syntax on
 
+
+" vim:set foldmethod=marker:
