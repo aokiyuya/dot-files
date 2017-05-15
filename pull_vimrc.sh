@@ -3,6 +3,7 @@ cd ~/dot-files/
 git fetch
 git merge origin/master
 
+cp ~/.vimrc ~/.old_vimrc
 cp ~/dot-files/vimrc ~/.vimrc
 cp -rf ~/.vim/template/ ~/template/
 rm -rf ~/.vim/
