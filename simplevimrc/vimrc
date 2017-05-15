@@ -6,6 +6,11 @@
 " my vim settings
 "
 " Author: Yuya Aoki
+" Final update: 2017/05/15 21:33:56
+
+
+" set options--------------- 
+" {{{
 
 "settings to use multi byte character
 set encoding=utf-8
@@ -63,6 +68,19 @@ set matchtime=1
 set pumheight=10
 
 set history=500
+" settings for ctags, tag jump
+set tags+=./tags;
+" TODO:ハードコーディングになってしまっているが良い方法はないか
+set path+=~/.pyenv/versions/3.6.0/lib/python3.6/
+
+" }}}
+
+
+
+" mappings---------------
+" {{{
+
+
 
 " mapはキー設定
 " nnoremap が normal mode,
@@ -72,19 +90,28 @@ set history=500
 " Space w で保存 Space q で終了
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap q<Space> :q<CR>
+" うーん
+nnoremap <Leader>z :wq<CR>
+" 本来押しにくいけど慣れすぎて頻繁に押せるキーを置換
+nnoremap <CR> o
+" nnoremap <BS> X
 " for US key
-nnoremap ; :
+" nnoremap ; :
 " Space SpaceでVisual Line
 nnoremap <Leader><Leader> V
+vnoremap <Leader> <ESC>
 " 打ち間違い is うっとおしい
-nnoremap q: :q
+nnoremap q: :q<CR>
 " +-で数字増えたり減ったりするよ
 nnoremap + <C-a>
 nnoremap - <C-x>
 
 " <>をうつのが面倒なので矢印で代替するよ><
-nnoremap <right> V>
-nnoremap <left> V<
+nnoremap <right> >>
+nnoremap <left> <<
+nnoremap > >>
+nnoremap < <<
 vnoremap <right> >
 vnoremap <left> <
 
@@ -99,8 +126,8 @@ nnoremap k gk
 nnoremap gk h
 
 " $,0はポインタだが直感的でないので変更
-nnoremap <Leader><right> $
-nnoremap <Leader><left> 0
+nnoremap <C-l> $
+nnoremap <C-h> 0
 
 " 対応する括弧を自動入力
 inoremap { {}<LEFT>
@@ -110,11 +137,17 @@ inoremap ( ()<LEFT>
 
 " みんなやってるのでためしに導入してみる
 inoremap jj <ESC>
-nnoremap <ESC><ESC> :nohlsearch<CR>
 " 同じノリで検索に移る
 " inoremap ff <ESC>/
 " ファイナルファンタジーでよく使うので廃止
 inoremap <C-f> <ESC>/
+
+" 大文字小文字変換
+nnoremap gu vu
+nnoremap gU vU
+
+" コピーしたテキストを貼り付ける
+nnoremap <Leader>p "0p
 
 " 空行挿入
 nnoremap <Leader>o o<ESC>
@@ -122,6 +155,13 @@ nnoremap <Leader>O O<ESC>
 
 " I don't use EX MODE
 nnoremap Q <Nop>
+
+" 怖いので誤作動をなくす
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+
+" .とhjklを素早く打ち込みたい時に手の移動が面倒なので試験的に
+nnoremap z .
 
 " 画面分割
 nnoremap <Leader>s :vsplit<CR>
@@ -131,6 +171,59 @@ nnoremap <Leader>l <C-w>l
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>k <C-w>k
+
+" 使いにくいキーを置換
+nnoremap m %
+" t を全然使わないのでバッファの移動に割り当て
+" nnoremap t gf
+nnoremap t :vsplit<CR>gf
+nnoremap T <C-^>
+
+" バッファ移動
+nnoremap <Leader>bp :bprevious<CR>
+nnoremap <Leader>bn :bnext<CR>
+
+" タブ移動
+nnoremap <Leader>tp :tabprevious<CR>
+nnoremap <Leader>tn :tabnext<CR>
+
+" タブ操作
+nnoremap <Leader>tl :tablast<CR>
+nnoremap <Leader>tc :tabclose<CR>
+nnoremap <Leader>nt :tabnew<CR>
+
+nnoremap <Leader>tp :tabprevious<CR>
+
+" 括弧の後ろまで飛んで編集したい
+inoremap <C-w> <Esc>%i
+
+" *をより簡単に
+nnoremap <Leader>/ *
+
+" 日付入力ショートカット
+nnoremap <Leader>date a<C-r>=strftime('%Y/%m/%d')<Return><Esc>
+nnoremap <Leader>time a<C-r>=strftime('%H:%M:%S')<Return><Esc>
+nnoremap <Leader>now a<C-r>=strftime('%Y/%m/%d %H:%M:%S')<Return><Esc>
+" Vimgrep
+nnoremap <Leader>v :vim //j ./* | cw
+
+" edit vimrc
+nnoremap <Leader>. :<C-u>tabedit ~/.vim/rc/vimrc<CR>
+
+" use NERDTree
+nnoremap <Leader>e :NERDTree<CR>
+
+
+nnoremap <Leader>c :!python %<CR>
+
+nnoremap <Leader>f :%foldclose<CR>
+
+" put esc-key for delete highlight
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+
+" }}}
+
+
 
 set background=dark
 syntax enable

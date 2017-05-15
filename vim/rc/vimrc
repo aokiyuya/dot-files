@@ -6,7 +6,7 @@
 " my vim settings
 "
 " Author: Yuya Aoki
-" Final update: 2017-05-02 11:22:31
+" Final update: 2017/05/15 21:33:56
 
 
 " set options--------------- 
@@ -176,18 +176,19 @@ nnoremap t :vsplit<CR>gf
 nnoremap T <C-^>
 
 " バッファ移動
-nnoremap <silent>bp :bprevious<CR>
-nnoremap <silent>bn :bnext<CR>
+nnoremap <Leader>bp :bprevious<CR>
+nnoremap <Leader>bn :bnext<CR>
 
 " タブ移動
-nnoremap <silent>tp :tabprevious<CR>
-nnoremap <silent>tn :tabnext<CR>
+nnoremap <Leader>tp :tabprevious<CR>
+nnoremap <Leader>tn :tabnext<CR>
 
 " タブ操作
-nnoremap <silent>tl :tablast<CR>
-nnoremap <silent>tc :tabclose<CR>
-nnoremap <silent>nt :tabnew<CR>
-nnoremap <silent>tp :tabprevious<CR>
+nnoremap <Leader>tl :tablast<CR>
+nnoremap <Leader>tc :tabclose<CR>
+nnoremap <Leader>nt :tabnew<CR>
+
+nnoremap <Leader>tp :tabprevious<CR>
 
 " 括弧の後ろまで飛んで編集したい
 inoremap <C-w> <Esc>%i
@@ -198,7 +199,7 @@ nnoremap <Leader>/ *
 " 日付入力ショートカット
 nnoremap <Leader>date a<C-r>=strftime('%Y/%m/%d')<Return><Esc>
 nnoremap <Leader>time a<C-r>=strftime('%H:%M:%S')<Return><Esc>
-
+nnoremap <Leader>now a<C-r>=strftime('%Y/%m/%d %H:%M:%S')<Return><Esc>
 " Vimgrep
 nnoremap <Leader>v :vim //j ./* | cw
 
