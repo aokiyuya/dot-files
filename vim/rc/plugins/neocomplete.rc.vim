@@ -66,6 +66,6 @@ function! s:check_back_space() abort "{{{
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~? '\s'
 endfunction"}}}
-" <C-b>: completion back.
-inoremap <expr><C-b> pumvisible() ? "\<C-p>" : "\<C-h>"
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 "}}}
