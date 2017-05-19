@@ -12,7 +12,7 @@ let g:neocomplete#auto_completion_start_length = 2
 let g:neocomplete#manual_completion_start_length = 0
 let g:neocomplete#min_keyword_length = 3
 
-let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_auto_select = 0
 
 let g:neocomplete#enable_auto_delimiter = 1
 let g:neocomplete#max_list = 100
@@ -68,4 +68,5 @@ function! s:check_back_space() abort "{{{
 endfunction"}}}
 " <S-TAB>: completion back.
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-j><BS>" : "<CR>"
 "}}}
