@@ -3,8 +3,10 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ deoplete#manual_complete()
+" <S-TAB>: back completion.
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " select use <C-a>
-inoremap <silent><expr> <C-A>
+inoremap <silent><expr> <C-a>
       \ pumvisible() ? "\<C-j><BS>" :
       \ deoplete#manual_complete()
 

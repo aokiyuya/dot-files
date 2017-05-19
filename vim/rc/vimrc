@@ -70,6 +70,14 @@ set pumheight=10
 set tags+=./tags;
 " TODO:ハードコーディングになってしまっているが良い方法はないか
 set path+=~/.pyenv/versions/3.6.0/lib/python3.6/
+" 暗号のアルゴリズム
+if !has('nvim')
+  set cryptmethod=blowfish2
+endif
+" menuone = 候補を絞る
+" noselect = 補完時に自動選択しない
+" preview = 詳細表示
+" set completeopt=menuone,noselect,preview
 
 " }}}
 
@@ -126,10 +134,10 @@ nnoremap <C-l> $
 nnoremap <C-h> 0
 
 " 対応する括弧を自動入力
-inoremap { {}<LEFT>
-inoremap < <><LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
+" inoremap { {}<LEFT>
+" inoremap < <><LEFT>
+" inoremap [ []<LEFT>
+" inoremap ( ()<LEFT>
 
 " みんなやってるのでためしに導入してみる
 inoremap jj <ESC>
