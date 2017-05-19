@@ -5,10 +5,11 @@ inoremap <silent><expr> <TAB>
       \ deoplete#manual_complete()
 " <S-TAB>: back completion.
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" select use <C-a>
-inoremap <silent><expr> <C-a>
-      \ pumvisible() ? "\<C-j><BS>" :
-      \ deoplete#manual_complete()
+" select use <CR>
+" inoremap <silent><expr> <CR>
+"       \ pumvisible() ? "\<C-j><BS>" :
+"       \ deoplete#manual_complete()
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-j><BS>" : "<CR>"
 
 function! s:check_back_space() abort "{{{
   let col = col('.') - 1
