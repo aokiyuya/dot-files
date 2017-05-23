@@ -44,10 +44,10 @@ hook_source='''
 
 '''
 
-[[plugins]]
-repo = 'Shougo/vimshell.vim'
-on_map = { n = '<Plug>'}
-hook_add = 'nmap [Space]s <Plug>(cimshell_switch)'
+# [[plugins]]
+# repo = 'Shougo/vimshell.vim'
+# on_map = { n = '<Plug>'}
+# hook_add = 'nmap [Space]s <Plug>(cimshell_switch)'
 # hook_source = 'source ~/.vim/rc/plugins/vimshell.rc.vim'
 
 [[plugins]]
@@ -87,5 +87,8 @@ set helplang& helplang=ja,en
 '''
 
 [[plugins]]
-repo = 'szw/vim-tags'
-
+repo = 'tweekmonster/braceless.vim'
+on_ft = 'python'
+hook_source = '''
+autocmd FileType python BracelessEnable +indent +fold
+'''
