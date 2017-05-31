@@ -110,6 +110,8 @@ nnoremap q: :q<CR>
 " +-で数字増えたり減ったりするよ
 nnoremap + <C-a>
 nnoremap - <C-x>
+vnoremap + <C-a>
+vnoremap - <C-x>
 
 " <>をうつのが面倒なので矢印で代替するよ><
 nnoremap <right> >>
@@ -122,12 +124,18 @@ vnoremap <left> <
 " <C-f><C-b>が直感的でないので<C-j><C-k>で代替
 nnoremap <C-j> <C-f>
 nnoremap <C-k> <C-b>
+vnoremap <C-j> <C-f>
+vnoremap <C-k> <C-b>
 
 " 実際の行でなく表示されてる行で移動を考える
 nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk h
+vnoremap j gj
+vnoremap gj j
+vnoremap k gk
+vnoremap gk h
 
 " $,0はポインタだが直感的でないので変更
 " nnoremap <C-l> $
@@ -199,6 +207,7 @@ nnoremap <Leader>tp :tabprevious<CR>
 inoremap <C-m> <Esc>%i
 
 " *をより簡単に
+" つかってない説
 nnoremap <Leader>/ *
 
 " 日付入力ショートカット
@@ -213,7 +222,6 @@ nnoremap <Leader>. :<C-u>tabedit ~/.vim/rc/vimrc<CR>
 
 " use NERDTree
 nnoremap <Leader>e :NERDTree<CR>
-
 
 nnoremap <Leader>c :!python %<CR>
 
