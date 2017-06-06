@@ -240,12 +240,12 @@ nnoremap <Leader>T :vsp<CR><C-w>l<C-]>
 
 " OSの判定
 if has('win32')
-	let ostype = 'Win'
+	let g:ostype = 'Win'
 elseif has('mac')
-	let ostype = 'Mac'
+	let g:ostype = 'Mac'
 	set shell=sh
 else
-	let ostype = system('uname')
+	let g:ostype = system('uname')
 	set shell=sh
 endif
 
@@ -262,7 +262,7 @@ autocmd MyAutoCmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
 autocmd MyAutoCmd BufNewFile *.c 0r $HOME/.vim/template/template.cpp
 autocmd MyAutoCmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
 autocmd MyAutoCmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
-autocmd MyAutoCmd BufNewFile 201[0-9]-[01][0-9]-[0-3][0-9].md 0r $HOME/tmp/template.md
+" autocmd MyAutoCmd BufNewFile 201[0-9]-[01][0-9]-[0-3][0-9].md 0r $HOME/tmp/template.md
 
 " 引用 by https://rcmdnk.com/blog/2017/03/10/computer-mac-vim/
 " これでIME無効化できるはずだよ
@@ -282,10 +282,10 @@ endif
 
 " 引用 by https://github.com/Shougo/shougo-s-github/blob/master/vim/rc/vimrc
 function! s:source_rc(path, ...) abort "{{{
-  let use_global = get(a:000, 0, !has('vim_starting'))
-  let abspath = resolve(expand('~/.vim/rc/' . a:path))
-  if !use_global
-    execute 'source' fnameescape(abspath)
+  let l:use_global = get(a:000, 0, !has('vim_starting'))
+  let l:abspath = resolve(expand('~/.vim/rc/' . a:path))
+  if !l:use_global
+    execute 'source' fnameescape(l:abspath)
     return
   endif
   " substitute all 'set' to 'setglobal'
@@ -315,8 +315,8 @@ if v:version >= 800
 endif
 
 " 引数なしでvimを開くとNERDTreeを起動
-let file_name = expand('%')
-if has('vim_starting') &&  file_name ==? ''
+let g:file_name = expand('%')
+if has('vim_starting') &&  g:file_name ==? ''
   autocmd MyAutoCmd VimEnter * NERDTree ./
 endif
 

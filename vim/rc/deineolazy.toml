@@ -1,9 +1,11 @@
 [[plugins]]
-repo = 'tweekmonster/deoplete-clang2'
+repo = 'zchee/deoplete-clang'
 on_ft = ['c', 'cpp']
 hook_source = '''
-  let b:clang2_orig_maps = {}
+	let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+	let g:deoplete#sources#clang#clang_header='/Library/Developer/CommandLineTools/usr/lib/clang'
 '''
+# let b:clang2_orig_maps = {}
 depends = ['deoplete.nvim']
 
 
@@ -18,3 +20,4 @@ call deoplete#custom#set('jedi', 'debug_enabled', 1)
 call deoplete#enable_logging('DEBUG', '/tmp/deoplete.log')
 '''
 depends = ['deoplete.nvim']
+

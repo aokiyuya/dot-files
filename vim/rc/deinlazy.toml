@@ -1,4 +1,5 @@
-[[plugins]] repo = 'Shougo/neomru.vim'
+[[plugins]]
+repo = 'Shougo/neomru.vim'
 
 # [[plugins]]
 # repo = 'Shougo/vimproc.vim'
@@ -77,8 +78,8 @@ if = "!has('nvim')"
 
 
 
-[[plugins]]
-repo = 'splitjoin.vim'
+# [[plugins]]
+# repo = 'splitjoin.vim'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
