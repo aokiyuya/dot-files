@@ -22,9 +22,6 @@ endif
 
 let g:marching_enable_neocomplete = 1
 
-let g:neocomplete#sources#omni#input_patterns.python =
-      \ '[^. *\t]\.\w*\|\h\w*'
-
 " Define keyword pattern.
 if !exists('g:neocomplete#keyword_patterns')
   let g:neocomplete#keyword_patterns = {}
@@ -52,7 +49,7 @@ inoremap <expr> <C-p>  pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
 inoremap <expr> '  pumvisible() ? "\<C-y>" : "'"
 
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+inoremap <silent><CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function() abort
   return neocomplete#smart_close_popup() . "\<CR>"
 endfunction
@@ -68,5 +65,6 @@ function! s:check_back_space() abort "{{{
 endfunction"}}}
 " <S-TAB>: completion back.
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <CR> pumvisible() ? "\<C-j><BS>" : "<CR>"
+" inoremap <silent><expr><CR> pumvisible() ? "\<C-j><BS>" : "<CR>"
+inoremap <silent><expr><CR> pumvisible() ? " <BS>" : "<CR>"
 "}}}

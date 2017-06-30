@@ -1,7 +1,7 @@
 # dot-files
 
 ## LICENSE
-MIT
+* MIT
 
 ## How to install
 > git clone thisurl at homedir
@@ -17,6 +17,6 @@ MIT
 
 ## Caution
 
-Use Vim 8.0 with lua
+Use Vim 8.0 with lua with python3
 
 

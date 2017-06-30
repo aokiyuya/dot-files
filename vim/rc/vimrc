@@ -303,8 +303,6 @@ function! s:source_rc(path, ...) abort "{{{
   endtry
 endfunction
 "}}}
-
-
 " dein.rc.vimを読み込む
 call s:source_rc('dein.rc.vim')
 

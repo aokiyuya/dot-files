@@ -3,27 +3,28 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'thinca/vim-quickrun'
-on_ft = 'tex'
-hook_source = '''source ~/.vim/rc/plugins/quickrun_tex.rc.vim'''
-depends = ['Shougo/vimproc.vim']
+repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
+repo = 'thinca/vim-quickrun'
+# on_ft = 'tex'
+# hook_source = '''source ~/.vim/rc/plugins/quickrun_tex.rc.vim'''
+depends = ['Shougo/vimproc.vim']
 
 [[plugins]] # statusline の設定
 repo = 'itchyny/lightline.vim'
 
 # ブランチやタグを指定したいとき
-[[plugins]]
-repo = 'delphinus35/typescript-vim'
-rev  = 'colorize-template-strings'
+# [[plugins]]
+# repo = 'delphinus35/typescript-vim'
+# rev  = 'colorize-template-strings'
 
 # 特定の条件で読み込みたいとき
-[[plugins]]
-repo = 'elzr/vim-json'
-if   = '''! has('kaoriya')'''
-on_ft = 'json'
+# [[plugins]]
+# repo = 'elzr/vim-json'
+# if   = '''! has('kaoriya')'''
+# on_ft = 'json'
 
 [[plugins]] # カーソル位置によって filetype 切り替え
 repo = 'osyo-manga/vim-precious'
@@ -99,34 +100,34 @@ on_ft = 'cpp'
 
 
 # plugins for twitter
-[[plugins]]
-repo = 'basyura/TweetVim'
-on_ft = 'twitter'
-
-[[plugins]]
-repo = 'mattn/webapi-vim'
-on_ft = 'twitter'
-
-[[plugins]]
-repo = 'basyura/twibill.vim'
-on_ft = 'twitter'
-
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_ft = 'twitter'
-
-[[plugins]]
-repo = 'h1mesuke/unite-outline'
-on_ft = 'twitter'
-
-[[plugins]]
-repo = 'basyura/bitly.vim'
-on_ft = 'twitter'
-
-[[plugins]]
-repo = 'Shougo/unite.vim'
-on_ft = 'twitter'
-
+# [[plugins]]
+# repo = 'basyura/TweetVim'
+# on_ft = 'twitter'
+# 
+# [[plugins]]
+# repo = 'mattn/webapi-vim'
+# on_ft = 'twitter'
+# 
+# [[plugins]]
+# repo = 'basyura/twibill.vim'
+# on_ft = 'twitter'
+# 
+# [[plugins]]
+# repo = 'tyru/open-browser.vim'
+# on_ft = 'twitter'
+# 
+# [[plugins]]
+# repo = 'h1mesuke/unite-outline'
+# on_ft = 'twitter'
+# 
+# [[plugins]]
+# repo = 'basyura/bitly.vim'
+# on_ft = 'twitter'
+# 
+# [[plugins]]
+# repo = 'Shougo/unite.vim'
+# on_ft = 'twitter'
+# 
 
 # new asynchronous sytax checker
 [[plugins]]
@@ -140,7 +141,8 @@ let g:ale_linters = {
 '''
 
 
-
+# [[plugins]]
+# repo = 'tpope/vim-dispatch'
 
 
 # [[plugins]] # カラースキーマ
@@ -149,6 +151,12 @@ let g:ale_linters = {
 # set background=dark
 # au MyAutoCmd VimEnter * nested colorscheme badwolf
 # '''
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_source = '''
+vmap <CR> <Plug>(EasyAlign)
+'''
 
 
 [[plugins]]

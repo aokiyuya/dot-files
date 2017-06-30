@@ -61,6 +61,7 @@ depends = 'open-browser.vim'
 [[plugins]]
 repo = 'ujihisa/neco-look'
 on_source = [ 'neocomplete.vim' ]
+on_ft = 'tex'
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
