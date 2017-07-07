@@ -235,6 +235,13 @@ inoremap <CR> <CR>
 
 nnoremap <Leader>T :vsp<CR><C-w>l<C-]>
 
+" 検索したときに，画面の真ん中に移動
+nnoremap n nzz
+nnoremap N Nzz
+
+" 他のコマンドと挙動を合わせる
+nnoremap Y y$
+
 " }}}
 
 
