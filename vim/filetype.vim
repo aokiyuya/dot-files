@@ -5,5 +5,3 @@ autocmd BufRead,BufNewFile *.tex setfiletype tex
 autocmd BufRead,BufNewFile *.md setfiletype markdown
 autocmd BufRead,BufNewFile *.mkd setfiletype markdown
 autocmd BufRead,BufNewFile *.twt setfiletype twitter
-
-

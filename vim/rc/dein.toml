@@ -33,6 +33,8 @@ depends = ['Shougo/context_filetype.vim']
 [[plugins]] # filetype 判定ライブラリ
 repo = 'Shougo/context_filetype.vim'
 
+
+
 [[plugins]] # toml syntax
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
@@ -157,6 +159,8 @@ repo = 'junegunn/vim-easy-align'
 hook_source = '''
 vmap <CR> <Plug>(EasyAlign)
 '''
+[[plugins]]
+repo = '5t111111/alt-gtags.vim'
 
 
 [[plugins]]
