@@ -271,6 +271,16 @@ autocmd MyAutoCmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
 autocmd MyAutoCmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
 " autocmd MyAutoCmd BufNewFile 201[0-9]-[01][0-9]-[0-3][0-9].md 0r $HOME/tmp/template.md
 
+augroup autoxxd
+	autocmd!
+	autocmd BufReadPost * if &binary | silent %!xxd -g 1
+	autocmd BufReadPost * set ft=xxd | endif
+	autocmd BufWritePre * if &binary | %!xxd -r | endif
+	autocmd BufWritePost * if &binary | silent %!xxd -g 1
+	autocmd BufWritePost * set nomod | endif
+augroup END
+
+
 " 引用 by https://rcmdnk.com/blog/2017/03/10/computer-mac-vim/
 " これでIME無効化できるはずだよ
 " ---------------
