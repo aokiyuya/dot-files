@@ -43,7 +43,7 @@ let g:deoplete#omni#input_patterns.python = ''
 let g:deoplete#omni#functions = {}
 let g:deoplete#auto_complete_delay = 10
 
-let g:deoplete#enable_refresh_always = 1
+let g:deoplete#enable_refresh_always = 0
 let g:deoplete#enable_camel_case = 1
 
 let g:deoplete#skip_chars = ['(', ')']
