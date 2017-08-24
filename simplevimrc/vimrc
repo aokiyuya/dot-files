@@ -104,8 +104,11 @@ vnoremap <Leader> <ESC>
 " 打ち間違い is うっとおしい
 nnoremap q: :q<CR>
 " +-で数字増えたり減ったりするよ
+" 124
 nnoremap + <C-a>
 nnoremap - <C-x>
+vnoremap + <C-a>
+vnoremap - <C-x>
 
 " <>をうつのが面倒なので矢印で代替するよ><
 nnoremap <right> >>
@@ -118,22 +121,29 @@ vnoremap <left> <
 " <C-f><C-b>が直感的でないので<C-j><C-k>で代替
 nnoremap <C-j> <C-f>
 nnoremap <C-k> <C-b>
+vnoremap <C-j> <C-f>
+vnoremap <C-k> <C-b>
 
 " 実際の行でなく表示されてる行で移動を考える
 nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk h
+vnoremap j gj
+vnoremap gj j
+vnoremap k gk
+vnoremap gk h
 
-" $,0はポインタだが直感的でないので変更
-nnoremap <C-l> $
-nnoremap <C-h> 0
 
 " 対応する括弧を自動入力
 inoremap { {}<LEFT>
 inoremap < <><LEFT>
 inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
+inoremap {} {}
+inoremap <> <>
+inoremap [] []
+inoremap () ()
 
 " みんなやってるのでためしに導入してみる
 inoremap jj <ESC>
@@ -160,8 +170,6 @@ nnoremap Q <Nop>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 
-" .とhjklを素早く打ち込みたい時に手の移動が面倒なので試験的に
-nnoremap z .
 
 " 画面分割
 nnoremap <Leader>s :vsplit<CR>
@@ -195,7 +203,7 @@ nnoremap <Leader>nt :tabnew<CR>
 nnoremap <Leader>tp :tabprevious<CR>
 
 " 括弧の後ろまで飛んで編集したい
-inoremap <C-w> <Esc>%i
+inoremap <C-m> <Esc>%i
 
 " *をより簡単に
 nnoremap <Leader>/ *
@@ -220,6 +228,13 @@ nnoremap <Leader>f :%foldclose<CR>
 
 " put esc-key for delete highlight
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+
+" 検索したときに，画面の真ん中に移動
+nnoremap n nzz
+nnoremap N Nzz
+
+" 他のコマンドと挙動を合わせる
+nnoremap Y y$
 
 " }}}
 

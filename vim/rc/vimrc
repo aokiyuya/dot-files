@@ -6,7 +6,7 @@
 " my vim settings
 "
 " Author: Yuya Aoki
-" Final update: 2017/05/15 21:33:56
+" Final update: 2017/08/24
 
 
 " set options--------------- 
@@ -147,6 +147,10 @@ vnoremap gk h
 " inoremap < <><LEFT>
 " inoremap [ []<LEFT>
 " inoremap ( ()<LEFT>
+" inoremap {} {}
+" inoremap <> <>
+" inoremap [] []
+" inoremap () ()
 
 " みんなやってるのでためしに導入してみる
 inoremap jj <ESC>
