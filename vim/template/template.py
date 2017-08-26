@@ -1,5 +1,5 @@
 #! !(which python)
-# encoding: utf-8
+# coding: utf-8
 ###########################
 # Author: Yuya Aoki
 #
