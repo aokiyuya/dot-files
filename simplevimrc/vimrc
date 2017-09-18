@@ -258,6 +258,8 @@ autocmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%=%l/%L,%c%V%8P
 set laststatus=2
 
+colorscheme darkblue
+
 filetype plugin indent on
 syntax on
 
