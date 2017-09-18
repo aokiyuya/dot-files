@@ -162,6 +162,9 @@ vmap <CR> <Plug>(EasyAlign)
 [[plugins]]
 repo = '5t111111/alt-gtags.vim'
 
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = 'fish'
 
 [[plugins]]
 repo = 'tomasr/molokai'

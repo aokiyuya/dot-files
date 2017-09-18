@@ -68,8 +68,7 @@ set matchtime=1
 set pumheight=10
 " settings for ctags, tag jump
 set tags+=./tags;
-" TODO:ハードコーディングになってしまっているが良い方法はないか
-set path+=~/.pyenv/versions/3.6.0/lib/python3.6/
+set path+=systemlist('pyenv which python || which python')
 " 暗号のアルゴリズム
 if !has('nvim')
   set cryptmethod=blowfish2
