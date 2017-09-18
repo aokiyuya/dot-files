@@ -68,7 +68,7 @@ set matchtime=1
 set pumheight=10
 " settings for ctags, tag jump
 set tags+=./tags;
-set path+=systemlist('pyenv which python || which python')
+set path+=system("pyenv which python || which python")
 " 暗号のアルゴリズム
 if !has('nvim')
   set cryptmethod=blowfish2
