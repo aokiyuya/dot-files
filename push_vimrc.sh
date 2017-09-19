@@ -12,6 +12,6 @@ git add -u
 if $* -eq 0 ; then
   git commit -a -m "change vimrc"
 else
-  git commit -a -m "$*"
+  git commit -a -m "$@"
 fi
 git push origin master

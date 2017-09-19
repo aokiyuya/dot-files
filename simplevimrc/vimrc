@@ -71,7 +71,7 @@ set history=500
 " settings for ctags, tag jump
 set tags+=./tags;
 set path+=system("pyenv which python || which python")
-set spell
+" set spell
 " }}}
 
 
