@@ -9,9 +9,9 @@ cp ~/.latexmkrc ~/dot-files/latexmkrc
 cd ~/dot-files/
 git add .
 git add -u
-if $* -eq 0 ; then
+if $# -eq 0 ; then
   git commit -a -m "change vimrc"
 else
-  git commit -a -m "$@"
+  git commit -a -m "$*"
 fi
 git push origin master
