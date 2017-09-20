@@ -9,7 +9,7 @@ inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " inoremap <silent><expr> <CR>
 "       \ pumvisible() ? "\<C-j><BS>" :
 "       \ deoplete#manual_complete()
-inoremap <silent><expr> <CR> pumvisible() ? "\<C-j><BS>" : "<CR>"
+inoremap <silent><expr> <C-TAB> pumvisible() ? "\<C-j><BS>" : "<CR>"
 
 function! s:check_back_space() abort "{{{
   let col = col('.') - 1
