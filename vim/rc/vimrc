@@ -272,6 +272,7 @@ autocmd MyAutoCmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
 autocmd MyAutoCmd BufNewFile *.c 0r $HOME/.vim/template/template.cpp
 autocmd MyAutoCmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
 autocmd MyAutoCmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
+autocmd MyAutoCmd BufNewFile Makefile 0r $HOME/.vim/template/template.make
 " autocmd MyAutoCmd BufNewFile 201[0-9]-[01][0-9]-[0-3][0-9].md 0r $HOME/tmp/template.md
 
 augroup autoxxd
