@@ -226,7 +226,8 @@ nnoremap <Leader>. :<C-u>tabedit ~/.vim/rc/vimrc<CR>
 " use NERDTree
 nnoremap <Leader>e :NERDTree<CR>
 
-nnoremap <Leader>c :!python %<CR>
+nnoremap <Leader>c :make<CR>
+nnoremap <Leader>m :make<CR>
 
 nnoremap <Leader>f :%foldclose<CR>
 

@@ -173,3 +173,5 @@ set background=dark
 au MyAutoCmd VimEnter * nested colorscheme molokai
 '''
 
+[[plugins]]
+repo = 'tpope/vim-surround'

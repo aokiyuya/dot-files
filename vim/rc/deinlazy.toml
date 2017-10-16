@@ -94,3 +94,5 @@ on_ft = 'python'
 hook_source = '''
 autocmd FileType python BracelessEnable +indent +fold
 '''
+
+
