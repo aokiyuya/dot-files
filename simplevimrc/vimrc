@@ -72,6 +72,9 @@ set history=500
 set tags+=./tags;
 set path+=system("pyenv which python || which python")
 " set spell
+
+set foldlevel=1
+
 " }}}
 
 
