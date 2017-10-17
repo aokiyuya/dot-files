@@ -65,7 +65,7 @@ set showmatch
 " input match ( Ex. (,[,", and other ) time * 0.1 sec
 set matchtime=1
 " length of complete list
-set pumheight=10
+set pumheight=5
 " settings for ctags, tag jump
 set tags+=./tags;
 set path+=system("pyenv which python || which python")
@@ -73,6 +73,7 @@ set path+=system("pyenv which python || which python")
 if !has('nvim')
   set cryptmethod=blowfish2
 endif
+set foldlevel=1
 " menuone = 候補を絞る
 " noselect = 補完時に自動選択しない
 " preview = 詳細表示
@@ -226,7 +227,7 @@ nnoremap <Leader>. :<C-u>tabedit ~/.vim/rc/vimrc<CR>
 " use NERDTree
 nnoremap <Leader>e :NERDTree<CR>
 
-nnoremap <Leader>c :make<CR>
+" nnoremap <Leader>c :make<CR>
 nnoremap <Leader>m :make<CR>
 
 nnoremap <Leader>f :%foldclose<CR>

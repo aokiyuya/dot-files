@@ -8,12 +8,15 @@ build = 'make'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
-# on_ft = 'tex'
-# hook_source = '''source ~/.vim/rc/plugins/quickrun_tex.rc.vim'''
+on_ft = 'tex'
+hook_source = '''source ~/.vim/rc/plugins/quickrun_tex.rc.vim'''
 depends = ['Shougo/vimproc.vim']
 
 [[plugins]] # statusline の設定
 repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
 
 # ブランチやタグを指定したいとき
 # [[plugins]]
@@ -26,9 +29,9 @@ repo = 'itchyny/lightline.vim'
 # if   = '''! has('kaoriya')'''
 # on_ft = 'json'
 
-[[plugins]] # カーソル位置によって filetype 切り替え
-repo = 'osyo-manga/vim-precious'
-depends = ['Shougo/context_filetype.vim']
+# [[plugins]] # カーソル位置によって filetype 切り替え
+# repo = 'osyo-manga/vim-precious'
+# depends = ['Shougo/context_filetype.vim']
 
 [[plugins]] # filetype 判定ライブラリ
 repo = 'Shougo/context_filetype.vim'
@@ -154,13 +157,13 @@ let g:ale_linters = {
 # au MyAutoCmd VimEnter * nested colorscheme badwolf
 # '''
 
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
-hook_source = '''
-vmap <CR> <Plug>(EasyAlign)
-'''
-[[plugins]]
-repo = '5t111111/alt-gtags.vim'
+# [[plugins]]
+# repo = 'junegunn/vim-easy-align'
+# hook_source = '''
+# vmap <CR> <Plug>(EasyAlign)
+# '''
+# [[plugins]]
+# repo = '5t111111/alt-gtags.vim'
 
 [[plugins]]
 repo = 'dag/vim-fish'
@@ -173,5 +176,3 @@ set background=dark
 au MyAutoCmd VimEnter * nested colorscheme molokai
 '''
 
-[[plugins]]
-repo = 'tpope/vim-surround'
