@@ -73,7 +73,7 @@ set path+=system("pyenv which python || which python")
 if !has('nvim')
   set cryptmethod=blowfish2
 endif
-set foldlevel=1
+set foldlevel=2
 " menuone = 候補を絞る
 " noselect = 補完時に自動選択しない
 " preview = 詳細表示
@@ -153,7 +153,8 @@ vnoremap gk h
 " inoremap () ()
 
 " みんなやってるのでためしに導入してみる
-inoremap jj <ESC>
+" inoremap jj <ESC>
+" キーボードの j が壊れ始めたので廃止
 " 同じノリで検索に移る
 " inoremap ff <ESC>/
 " ファイナルファンタジーでよく使うので廃止
