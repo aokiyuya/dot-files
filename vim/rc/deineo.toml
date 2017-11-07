@@ -5,14 +5,12 @@ hook_source = '''
 let g:python3_host_prog = systemlist('pyenv which python3 || which python3')[0]
 let g:python_host_prog = systemlist('pyenv which python2 || which python2')[0]
 '''
-[[plugins]]
 
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 depends = 'Shougo/context_filetype.vim'
 on_i = 1
 hook_source ='''
 let g:deoplete#enable_at_startup = 1
-call g:deoplete#enable()
 source ~/.vim/rc/plugins/deoplete.rc.vim
 '''
-

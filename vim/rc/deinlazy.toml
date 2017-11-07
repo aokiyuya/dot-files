@@ -12,15 +12,15 @@
 # on_event = 'TextYankPost'
 # on_source = ['unite.vim', 'denite.nvim']
 
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-depends = 'context_filetype.vim'
-if = "has('lua')"
-on_i = 1
-hook_source= '''
-let g:neocomplete#enable_at_startup = 1
-source ~/.vim/rc/plugins/neocomplete.rc.vim
-'''
+# [[plugins]]
+# repo = 'Shougo/neocomplete.vim'
+# depends = 'context_filetype.vim'
+# if = "has('lua')"
+# on_i = 1
+# hook_source= '''
+# let g:neocomplete#enable_at_startup = 1
+# source ~/.vim/rc/plugins/neocomplete.rc.vim
+# '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
