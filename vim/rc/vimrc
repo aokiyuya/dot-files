@@ -28,7 +28,7 @@ set title
 set wildmenu
 " 小文字で検索したとき大文字小文字を無視する
 set ignorecase
-" 検索キーワードが大文字を含む時だけ🐛
+" 検索キーワードが大文字を含む時だけ視無する
 set smartcase
 " 検索結果にハイライトをかける
 set hlsearch
