@@ -138,21 +138,21 @@ vnoremap gk h
 
 
 " 対応する括弧を自動入力
-inoremap { {}<LEFT>
-inoremap < <><LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
-inoremap {} {}
-inoremap <> <>
-inoremap [] []
-inoremap () ()
+" inoremap { {}<LEFT>
+" inoremap < <><LEFT>
+" inoremap [ []<LEFT>
+" inoremap ( ()<LEFT>
+" inoremap {} {}
+" inoremap <> <>
+" inoremap [] []
+" inoremap () ()
 
 " みんなやってるのでためしに導入してみる
-inoremap jj <ESC>
+" inoremap jj <ESC>
 " 同じノリで検索に移る
 " inoremap ff <ESC>/
 " ファイナルファンタジーでよく使うので廃止
-inoremap <C-f> <ESC>/
+" inoremap <C-f> <ESC>/
 
 " 大文字小文字変換
 nnoremap gu vu
@@ -224,7 +224,7 @@ nnoremap <Leader>. :<C-u>tabedit ~/.vim/rc/vimrc<CR>
 nnoremap <Leader>e :NERDTree<CR>
 
 
-nnoremap <Leader>c :!python %<CR>
+" nnoremap <Leader>c :!python %<CR>
 
 nnoremap <Leader>f :%foldclose<CR>
 
