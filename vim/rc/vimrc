@@ -111,7 +111,8 @@ nnoremap q: :q<CR>
 nnoremap + <C-a>
 nnoremap - <C-x>
 vnoremap + <C-a>
-vnoremap - <C-x>
+vnoremap g+ g<C-a>
+vnoremap g- g<C-x>
 
 " <>をうつのが面倒なので矢印で代替するよ><
 nnoremap <right> >>
