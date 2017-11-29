@@ -81,9 +81,6 @@ set foldlevel=1
 
 " mappings---------------
 " {{{
-
-
-
 " mapはキー設定
 " nnoremap が normal mode,
 " inoremap が insert mode,
@@ -236,8 +233,10 @@ nnoremap n nzz
 nnoremap N Nzz
 
 " 他のコマンドと挙動を合わせる
-nnoremap Y y$
 
+
+nnoremap Y y$
+inoremap <CR> <CR>
 " }}}
 
 
