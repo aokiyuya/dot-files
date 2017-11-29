@@ -237,6 +237,7 @@ nnoremap N Nzz
 
 " 他のコマンドと挙動を合わせる
 nnoremap Y y$
+inoremap <CR> <CR>
 
 " }}}
 
