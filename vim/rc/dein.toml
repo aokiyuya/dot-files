@@ -87,19 +87,6 @@ on_ft = 'markdown'
 # repo = 'hynek/vim-python-pep8-indent'
 # on_ft = 'python'
 
-# plugins for c and cpp
-[[plugins]]
-repo = 'osyo-manga/vim-marching'
-on_ft = 'cpp'
-
-[[plugins]]
-repo = 'vim-jp/cpp-vim'
-on_ft = 'cpp'
-
-[[plugins]]
-repo = 'justmao945/vim-clang'
-on_ft = 'cpp'
-
 [[plugins]]
 repo = 'roxma/nvim-yarp'
 if = "!has('nvim')"

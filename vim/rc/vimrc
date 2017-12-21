@@ -257,10 +257,10 @@ if has('win32')
 	let g:ostype = 'Win'
 elseif has('mac')
 	let g:ostype = 'Mac'
-	set shell=sh
+	set shell=/usr/local/bin/bash
 else
 	let g:ostype = system('uname')
-	set shell=sh
+	set shell=/usr/local/bin/bash
 endif
 
 
@@ -356,6 +356,5 @@ highlight Normal ctermbg=none
 
 filetype plugin indent on
 syntax on
-
 
 " vim:set foldmethod=marker:
