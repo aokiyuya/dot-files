@@ -12,19 +12,15 @@ let g:previm_open_cmd = 'open -a Safari'
 " open preview type Ctrl - p
 " nnoremap <silent><C-p> :PrevimOpen<CR>
 
-" 
 let g:vim_markdown_folding_disabled=0
-
-
-
 
 function! BashOut() abort
 	let s:cmd = getline('.')
 	if s:cmd[0] == '>'
 		let s:cmd = s:cmd[1:]
 	endif
-	let s:result = system(s:cmd)
-	execute ":normal o" . s:result
+	normal! o
+	execute ":r! ".s:cmd
 	call append('.', "> ")
 	let s:pos = getpos('.')
 	let s:pos[1] = s:pos[1] + 1
@@ -36,10 +32,32 @@ function! Previous_command() abort
 	let s:now = getline('.')
 	echo search(s:now)
 	" let s:prev = getline('.')
-	execute ":normal S" . s:now
+python3 << PYTHON
+prev = history.get_prev_hist()
+vim.command('let s:prev = ' + prev)
+print(prev)
+
+PYTHON
+	execute ":normal S" . s:prev
 	normal! $
 endfunction
 
+function! InitCommandHist() abort
+python3 << PYTHON
+import vim
+import sys
+import os
+sys.path.append(os.path.expanduser('~') + '/.vim/after/ftplugin')
+import shellnotelib as sn
+history = sn.ShellNote()
+PYTHON
+endfunction
+
+augroup shellnote
+	autocmd!
+	autocmd VimEnter :call InitCommandHist()<CR>
+augroup END
+
 nnoremap <Leader>@ :call BashOut()<CR>
 nnoremap <C-p> <C-o>:call Previous_command()<CR>
-inoremap <C-p> :call Previous_command()<CR>
+" inoremap <Leader>[ :call Previous_command()<CR>

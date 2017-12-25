@@ -9,12 +9,12 @@ import re
 from collections import deque
 
 
-class CommandHistry(object):
+class ShellNote(object):
     def __init__(self):
         self.command_hist = deque()
-        for line in vim.baffers:
+        for line in vim.current.buffer:
             if re.match('^>', line):
-                line.replace('^>\s*')
+                # line.replace('^>\s*')
                 self.command_hist.append(line)
         self.set_hist_index(len(self.command_hist))
 
@@ -25,16 +25,17 @@ class CommandHistry(object):
         self.set_hist_index(len(self.command_hist))
 
     def get_prev_hist(self, now_command=None):
-        index = int(self.command_hist.index(now_command))
         if now_command is None:
             index = self.index
+        else:
+            index = self.command_hist.index(now_command)
         if index > 0:
             index = index - 1
         return self.command_hist[index]
 
     def get_new_hist(self, now_command):
         hist_size = len(self.command_hist)
-        index = int(self.command_hist.index(now_command))
+        index = self.command_hist.index(now_command)
         if index < hist_size:
             return self.command_hist[index - 1]
         else:
