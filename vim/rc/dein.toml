@@ -153,6 +153,7 @@ hook_add = '''
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'vim': [],
+\   'tex': [],
 \}
 
 '''
@@ -186,4 +187,10 @@ hook_add = '''
 set background=dark
 au MyAutoCmd VimEnter * nested colorscheme molokai
 '''
+
+[[plugins]]
+repo = 'aokiyuya/shellnote.vim'
+on_ft = 'markdown'
+
+
 
