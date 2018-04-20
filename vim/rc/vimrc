@@ -68,12 +68,13 @@ set matchtime=1
 set pumheight=5
 " settings for ctags, tag jump
 set tags+=./tags;
-set path+=system("pyenv which python || which python")
+set path+=system("pyenv which python")
 " 暗号のアルゴリズム
 if !has('nvim')
   set cryptmethod=blowfish2
 endif
 set foldlevel=2
+
 " menuone = 候補を絞る
 " noselect = 補完時に自動選択しない
 " preview = 詳細表示
@@ -227,7 +228,7 @@ nnoremap <Leader>v :vim //j ./* | cw
 nnoremap <Leader>. :<C-u>tabedit ~/.vim/rc/vimrc<CR>
 
 " use NERDTree
-nnoremap <Leader>e :NERDTree<CR>
+" nnoremap <Leader>e :NERDTree<CR>
 
 " nnoremap <Leader>c :make<CR>
 nnoremap <Leader>m :make<CR>
@@ -257,10 +258,10 @@ if has('win32')
 	let g:ostype = 'Win'
 elseif has('mac')
 	let g:ostype = 'Mac'
-	set shell=/usr/local/bin/bash
+	set shell=sh
 else
 	let g:ostype = system('uname')
-	set shell=/usr/local/bin/bash
+	set shell=sh
 endif
 
 

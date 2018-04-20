@@ -14,4 +14,4 @@ if $# -eq 0 ; then
 else
   git commit -a -m "$*"
 fi
-git push origin master
+git push --set-upstream origin submachine
