@@ -25,7 +25,7 @@ endif
 let python_highlight_all = 1
 syntax on
 syntax keyword pythonEscape self
-syntax match pythonFunction /\.*[A-Z]*[a-z_2]\+\ze(/
+syntax match pythonFunction /\.*[A-Za-z_12]\+\ze(/
 syntax match pythonOperator /\s*=\s*/
 syntax match pythonOperator /\(\.\|,\)/
 

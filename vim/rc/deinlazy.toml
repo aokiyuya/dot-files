@@ -1,6 +1,5 @@
 # [[plugins]]
 # repo = 'Shougo/neomru.vim'
-
 # [[plugins]]
 # repo = 'Shougo/vimproc.vim'
 # build = 'make'
@@ -56,6 +55,9 @@ repo = 'aokiyuya/previm'
 on_cmd = 'PrevimOpen'
 on_ft = 'markdown'
 depends = 'open-browser.vim'
+hook_source = '''
+let g:previm_show_header = 0
+'''
 
 
 
@@ -72,11 +74,11 @@ hook_source = '''
 source ~/.vim/rc/plugins/jedi.rc.vim
 '''
 
-[[plugins]]
-repo = 'lambdalisue/vim-pyenv'
-depends = ['jedi-vim']
-on_ft = 'python'
-if = "!has('nvim')"
+# [[plugins]]
+# repo = 'lambdalisue/vim-pyenv'
+# depends = ['jedi-vim']
+# on_ft = 'python'
+# if = "!has('nvim')"
 
 
 
@@ -105,5 +107,6 @@ hook_source = '''
 '''
 # let b:clang2_orig_maps = {}
 depends = ['deoplete.nvim']
+
 
 

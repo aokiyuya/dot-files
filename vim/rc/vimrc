@@ -1,13 +1,8 @@
-" \ \/ /__  __ __  __ ____ _( )_____   | |  / /(_)____ ___   _____ _____
-"  \  // / / // / / // __ `/|// ___/   | | / // // __ `__ \ / ___// ___/
-"  / // /_/ // /_/ // /_/ /  (__  )    | |/ // // / / / / // /   / /__
-" /_/ \__,_/ \__, / \__,_/  /____/     |___//_//_/ /_/ /_//_/    \___/
-"           /____/
 " my vim settings
 "
+"
 " Author: Yuya Aoki
-" Final update: 2017/08/24
-
+" Last Change: 2018/01/10 14:50:56.
 
 " set options--------------- 
 " {{{
@@ -16,6 +11,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+set nofoldenable
 " 行数表示
 set number
 " swapfileを作らない
@@ -73,7 +69,7 @@ set path+=system("pyenv which python || which python")
 if !has('nvim')
   set cryptmethod=blowfish2
 endif
-set foldlevel=2
+" set foldlevel=2
 " menuone = 候補を絞る
 " noselect = 補完時に自動選択しない
 " preview = 詳細表示
@@ -273,6 +269,7 @@ augroup END
 " road template
 autocmd MyAutoCmd BufNewFile *.py 0r $HOME/.vim/template/template.py
 autocmd MyAutoCmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
+autocmd MyAutoCmd BufNewFile *.cc 0r $HOME/.vim/template/template.cpp
 autocmd MyAutoCmd BufNewFile *.c 0r $HOME/.vim/template/template.cpp
 autocmd MyAutoCmd BufNewFile *.sh 0r $HOME/.vim/template/template.sh
 autocmd MyAutoCmd BufNewFile *.tex 0r $HOME/.vim/template/template.tex
@@ -340,7 +337,7 @@ endif
 " 引数なしでvimを開くとNERDTreeを起動
 let g:file_name = expand('%')
 if has('vim_starting') &&  g:file_name ==? ''
-  autocmd MyAutoCmd VimEnter * NERDTree ./
+  " autocmd MyAutoCmd VimEnter * NERDTree ./
 endif
 
 " For snippet_complete marker.
@@ -358,3 +355,4 @@ filetype plugin indent on
 syntax on
 
 " vim:set foldmethod=marker:
+
