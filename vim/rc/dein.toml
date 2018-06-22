@@ -157,6 +157,7 @@ let g:ale_linters = {
 \   'python': ['flake8'],
 \   'vim': [],
 \   'tex': [],
+\   'cpp': ['clang-format'],
 \   'java': [],
 \}
 
